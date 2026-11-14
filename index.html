@@ -144,7 +144,7 @@ async function getVerdict(){
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: "gemma2-9b-it",
+        model: "llama-3.3-70b-specdec",
         messages: [
           { role: "system", content: "أجب بصيغة JSON فقط." },
           { role: "user", content: prompt }
