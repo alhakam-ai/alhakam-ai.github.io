@@ -6,7 +6,19 @@
 <meta name="description" content="الحَكَم - محكمة الذكاء الاصطناعي الشعبية المصرية. احكي مشكلتك واستلم حكم مضحك وذكي بالعامية المصرية مع نصيحة حقيقية">
 <meta name="keywords" content="محكمة, ذكاء اصطناعي, حكم, مصري, كوميدي, ترفيه">
 <title>⚖️ الحَكَم - محكمة الذكاء الاصطناعي الشعبية</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30K4K516M5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-30K4K516M5');
+</script>
+
+<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5550731073318878" crossorigin="anonymous"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -24,7 +36,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 .example-problems{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;justify-content:center}
 .example-btn{background:#2a1a00;color:#ffd700;border:1px solid #ff8c00;padding:6px 12px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;transition:all 0.3s}
 .example-btn:hover{background:#ff8c00;color:#fff;transform:scale(1.05)}
-.main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden}
+.main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer;transition:all 0.3s}
 .main-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,215,0,0.5)}
 .main-btn:disabled{opacity:0.5;cursor:not-allowed}
 .verdict{margin-top:30px;padding:20px;background:#1a1a1a;border:2px solid #ffd700;border-radius:15px;display:none;animation:slideIn 0.5s ease-out}
@@ -35,17 +47,11 @@ textarea:focus{outline:none;border-color:#ffd700}
 .verdict-item strong{color:#ffd700;display:block;margin-bottom:5px;font-size:1.1em}
 .verdict-item ul{padding-right:20px;margin-top:5px}
 .verdict-item li{margin:5px 0}
-.proverb-box{background:linear-gradient(135deg,#2a1a00,#1a1a00);border:2px solid #ff8c00;border-radius:12px;padding:15px;margin:15px 0;text-align:center;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
-.proverb-box .proverb-label{color:#ff8c00;font-size:0.9em;margin-bottom:8px}
-.proverb-box .proverb-text{color:#ffd700;font-size:1.2em;font-weight:bold;font-style:italic}
 .quote-box{background:linear-gradient(135deg,#1a1a1a,#2a2a1a);border:1px dashed #ffd700;border-radius:10px;padding:15px;margin:15px 0;font-style:italic;text-align:center;color:#ffed4e;font-size:1.1em}
 .real-advice-box{background:linear-gradient(135deg,#001a00,#0a1a0a);border:2px solid #4caf50;border-radius:12px;padding:20px;margin:20px 0}
 .real-advice-box .advice-label{color:#4caf50;font-size:0.9em;margin-bottom:10px;text-align:center;font-weight:bold}
 .real-advice-box .advice-text{color:#fff;font-size:1.1em;line-height:1.8;text-align:center}
 .loading{text-align:center;color:#ffd700;margin:20px 0;display:none;font-size:1.2em}
-.loading .dots{display:inline-block;animation:dots 1.5s infinite}
-@keyframes dots{0%,20%{content:'.'}40%{content:'..'}60%{content:'...'}80%,100%{content:''}}
 .closing{text-align:center;font-size:1.3em;color:#ffd700;margin-top:20px;padding:15px;border-top:1px dashed #ffd700}
 .error{background:rgba(255,0,0,0.2);border:2px solid #ff4444;color:#fff;padding:15px;border-radius:10px;margin-top:20px;display:none}
 .share-section{margin-top:20px;padding-top:20px;border-top:2px dashed #ffd700;text-align:center}
