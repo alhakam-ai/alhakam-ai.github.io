@@ -7,13 +7,12 @@
 <meta name="keywords" content="محكمة, ذكاء اصطناعي, حكم, مصري, كوميدي, ترفيه">
 <title>⚖️ الحَكَم - محكمة الذكاء الاصطناعي الشعبية</title>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-30K4K516M5"></script>
+<!-- Google Tag (Analytics) -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MGBSH94T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-30K4K516M5');
 </script>
 
 <!-- AdSense -->
@@ -160,7 +159,8 @@ textarea:focus{outline:none;border-color:#ffd700}
 <p><strong>1. المعلومات التي نجمعها:</strong> نحن لا نجمع أي معلومات شخصية عنك. المشاكل التي تكتبها تُرسل مباشرة للمعالجة ولا يتم تخزينها على خوادمنا.</p>
 <p><strong>2. الأمان:</strong> نستخدم تقنيات تشفير قياسية لحماية البيانات المرسلة. ننصح بعدم كتابة معلومات حساسة أو شخصية جداً.</p>
 <p><strong>3. الإعلانات:</strong> هذا الموقع يستخدم إعلانات Google AdSense. قد تستخدم Google و شركائها ملفات تعريف الارتباط لعرض إعلانات بناءً على زياراتك السابقة لهذا الموقع أو لمواقع أخرى.</p>
-<p><strong>4. حقوقك:</strong> يمكنك إيقاف الإعلانات المخصصة من إعدادات إعلانات Google على العنوان: https://www.google.com/settings/ads</p>
+<p><strong>4. الإحصائيات:</strong> نستخدم Google Analytics لجمع بيانات مجهولة عن زيارات الموقع (مثل عدد الزوار والصفحات التي تمت زيارتها) بهدف تحسين الخدمة.</p>
+<p><strong>5. حقوقك:</strong> يمكنك إيقاف الإعلانات المخصصة من إعدادات إعلانات Google على العنوان: https://www.google.com/settings/ads</p>
 </div>
 </div>
 
@@ -196,49 +196,43 @@ async function getVerdict() {
   document.getElementById('judgeBtn').disabled = true;
   
   try {
-    const prompt = `أنت "الحَكَم"، قاضي مصري شعبي دمه خفيف جداً وبيحب يضحك الناس. بتتكلم بالعامية المصرية البسيطة فقط، جملك قصيرة ومفهومة، وبتستخدم أمثال شعبية مصرية.
+    const prompt = `أنت "الحَكَم"، قاضي مصري شعبي، دمك خفيف جداً، بتتكلم عامية مصرية حقيقية 100% (زي أفلام الكوميديا المصرية). 
+ممنوع الفصحى. ممنوع الكلام المترجم حرفياً. جملك لازم تكون طبيعية، ساخرة بلطف، وفيها أمثال مصرية.
 
 المشكلة: "${problem}"
 
 رد بصيغة JSON فقط (بدون أي كلام قبل أو بعد):
 {
-  "case_title": "عنوان قصير ومضحك (3-5 كلمات)",
+  "case_title": "عنوان مضحك جداً (مثال: قضية السهران اللي بيحول الليل لنهار)",
   "degree": "رقم من 100",
-  "degree_reason": "مثل شعبي مصري بسيط (جملة واحدة)",
-  "accused": "وصف المتهم (جملة واحدة بسيطة)",
-  "victim": "وصف المجني عليه (جملة واحدة بسيطة)",
-  "analysis": "تحليل بسيط (2-3 جمل قصيرة) بالعامية المصرية",
-  "verdict": "الحكم (جملة واحدة أو اتنين)",
-  "punishment": ["عقوبة 1 بسيطة ومضحكة", "عقوبة 2", "عقوبة 3"],
-  "judge_advice": "نصيحة بسيطة من القاضي (جملة واحدة)",
-  "life_lesson": "الدرس المستفاد (جملة واحدة)",
+  "degree_reason": "مثل مصري شعبي يناسب الموقف (مثال: اللي يتجوز قرد يشوف قرد)",
+  "accused": "وصف كوميدي للمتهم (مثال: صاحبك اللي الساعة عنده مجرد ديكور)",
+  "victim": "وصف كوميدي للمجني عليه (مثال: أنت اللي كبرت في الاستنا)",
+  "analysis": "تحليل مضحك (2-3 جمل) يشرح الموقف بذكاء وسخرية مصرية",
+  "verdict": "الحكم النهائي بصيغة قاضي مصري بيهدد بلطف",
+  "punishment": ["عقوبة 1 مضحكة وعملية", "عقوبة 2 محرجة شوية", "عقوبة 3 سخيفة"],
+  "judge_advice": "نصيحة من القلب بالعامية (مثال: يا ابني، الكلام بيحل مشاكل أكتر من الصمت)",
+  "life_lesson": "الحكمة من الموضوع في جملة واحدة",
   "related_cases": ["قضية مشابهة 1", "قضية مشابهة 2", "قضية مشابهة 3"],
-  "judge_quote": "اقتباس قصير من القاضي (جملة واحدة)",
-  "real_advice": "نصيحة حقيقية مفيدة بالعامية (2-3 جمل)",
-  "closing": "جملة ختامية قصيرة"
+  "judge_quote": "جملة ختامية ساخرة من القاضي (مثال: المحكمة دي ملهاش رحمة، بس عندها شاي)",
+  "real_advice": "نصيحة حقيقية وجيدة جداً لحل المشكلة فعلياً (2-3 جمل واضحة ومباشرة)",
+  "closing": "جملة ختامية تقليدية للمحكمة (مثال: وبما إن الحق واضح، رُفعت الجلسة!)"
 }
 
-أمثلة على أسلوبك:
-- "يا ريس، إنت بتنام بدري ومراتك عايزة تسهر. المشكلة إنكوا مش بتفهموا بعض."
-- "المثل بيقول: اللي يتجوز قرد يشوف قرد. يعني إنت اخترت، فاستحمل!"
-- "الحل: قعدوا واتكلموا في الموضوع بهدوء. الكلام بيحل 90% من المشاكل."
-
-مهم جداً:
-- جملك قصيرة وبسيطة
-- عامية مصرية صحيحة
-- من غير أخطاء إملائية
-- دماغة خفيفة ومحترمة
-- متكتبش جمل طويلة`;
+⚠️ تحذير هام: 
+- لا تقل "الوقت هو أصول" أو "مستحقة يلاقي وقت" (هذا كلام مترجم وآلي).
+- قل بدلاً من ذلك: "يا ريس، الوقت بيقطع رقابنا، وإنت لسه بتستنى؟"
+- استخدم كلمات مصرية حقيقية: "بص"، "اسمعني كويس"، "يا ساتر"، "ده مينفعش خالص".`;
 
     const response = await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         messages: [
-          { role: "system", content: "أجب بصيغة JSON فقط. تكلم بالعامية المصرية البسيطة. جملك قصيرة ومفهومة." },
+          { role: "system", content: "أجب بصيغة JSON فقط. تكلم بالعامية المصرية البسيطة والطبيعية جداً. تجنب الترجمة الحرفية." },
           { role: "user", content: prompt }
         ],
-        temperature: 0.9
+        temperature: 1.1
       })
     });
     
@@ -260,15 +254,15 @@ async function getVerdict() {
         degree_reason: 'الحياة مش ورد',
         accused: 'المتهم', 
         victim: 'المجني عليه', 
-        analysis: 'المشكلة محتاجة حل', 
-        verdict: 'الحكم لصالح العدالة', 
-        punishment: ['فكر في الموضوع', 'اتكلم مع الطرف التاني', 'الحل في الحوار'], 
-        judge_advice: 'الصبر مفتاح الفرج',
-        life_lesson: 'كل مشكلة ليها حل',
-        related_cases: ['قضية 1', 'قضية 2', 'قضية 3'],
-        judge_quote: 'القاضي بيحب الشاي ☕',
-        real_advice: 'حاول تفهم الطرف التاني وتتواصل معه بهدوء',
-        closing: '⚖️ رُفعت الجلسة!'
+        analysis: 'المشكلة محتاجة حل، وكتر الكلام يوجع الراس', 
+        verdict: 'الحكم لصالح العدالة والمنطق', 
+        punishment: ['فكر في الموضوع كويس', 'اتكلم مع الطرف التاني', 'الحل في الحوار'], 
+        judge_advice: 'يا ابني، الصبر مفتاح الفرج، بس مش لدرجة إنك تنسى حقك',
+        life_lesson: 'كل مشكلة ليها حل، بس لازم نفتح عيننا',
+        related_cases: ['قضية النسيان المزمن', 'قضية الأعذار الواهية', 'قضية الوعود الكيدية'],
+        judge_quote: 'القاضي بيحب الشاي، بس بيكره الأعذار ☕',
+        real_advice: 'حاول تفهم الطرف التاني وتتواصل معه بهدوء. لو المشكلة مستمرة، لازم تحط حدود واضحة لعلاقتك بيه.',
+        closing: '⚖️ وبما إن الحق واضح، رُفعت الجلسة!'
       }; 
     }
     
@@ -279,7 +273,7 @@ async function getVerdict() {
     
     document.getElementById('verdictContent').innerHTML = `
       <h3 style="color:#ffd700;text-align:center;margin-bottom:20px;font-size:1.4em;">${result.case_title || '⚖️ قضية'}</h3>
-      <div class="verdict-item"><strong>📊 درجة الجريمة:</strong> ${result.degree || '-'} / 100 <br><em style="color:#aaa;font-size:0.9em;">${result.degree_reason || ''}</em></div>
+      <div class="verdict-item"><strong>📊 درجة الجريمة:</strong> ${result.degree || '-'} / 100 <br><em style="color:#aaa;font-size:0.9em;">"${result.degree_reason || ''}"</em></div>
       <div class="verdict-item"><strong>👤 المتهم:</strong> ${result.accused || '-'}</div>
       <div class="verdict-item"><strong>👤 المجني عليه:</strong> ${result.victim || '-'}</div>
       <div class="verdict-item"><strong>🔍 تحليل القاضي:</strong><br>${result.analysis || '-'}</div>
@@ -309,7 +303,7 @@ async function getVerdict() {
 function getShareText() {
   if (!currentVerdict) return '';
   const v = currentVerdict;
-  return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n📊 درجة الجريمة: ${v.degree}/100 - ${v.degree_reason}\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبات: ${v.punishment?.join(' | ')}\n\n💡 نصيحة القاضي: ${v.judge_advice}\n🎓 الدرس: ${v.life_lesson}\n\n"${v.judge_quote}"\n\n💚 نصيحة حقيقية: ${v.real_advice}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
+  return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n📊 درجة الجريمة: ${v.degree}/100 - "${v.degree_reason}"\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبات: ${v.punishment?.join(' | ')}\n\n💡 نصيحة القاضي: ${v.judge_advice}\n\n"${v.judge_quote}"\n\n💚 نصيحة حقيقية: ${v.real_advice}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
 }
 
 function shareOn(p) {
