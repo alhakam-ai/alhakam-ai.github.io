@@ -117,6 +117,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 </div>
 </div>
 <script>
+const _k = atob('Z3NrX0RmWFB6VlM0bFVaMnFmNnVwMFNYV0dkeWIzRllIQkZaazI5QzdYT212UGpQcERWdVVVUEI=');
 let currentVerdict = null;
 function showPage(pageName){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -145,9 +146,9 @@ const prompt=`أنت "الحَكَم"، قاضٍ مصري ساخر جداً يت
   "punishment": ["عقوبة مضحكة 1", "عقوبة مضحكة 2", "عقوبة مضحكة 3"],
   "closing": "جملة ختامية ساخرة"
 }`;
-const response=await fetch('https://hook.eu1.make.com/t1ifnsr6c8vxk0puhwy0y4j3a5tqxx5j',{
+const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{
 method:'POST',
-headers:{'Content-Type':'application/json'},
+headers:{'Content-Type':'application/json','Authorization':'Bearer '+_k},
 body:JSON.stringify({
 model:"llama-3.3-70b-versatile",
 messages:[
