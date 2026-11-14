@@ -145,22 +145,30 @@ async function getVerdict() {
   document.getElementById('judgeBtn').disabled = true;
   
   try {
-    const prompt = `أنت "الحَكَم"، قاضٍ مصري ساخر جداً يتحدث بالعامية المصرية فقط.
-المشكلة: "${problem}"
-ردك يجب أن يكون JSON صالح فقط (بدون أي كلام قبل أو بعد الـ JSON) بهذا الهيكل:
-{"case_title":"عنوان مضحك","accused":"المتهم","victim":"المجني عليه","analysis":"تحليل كوميدي","verdict":"الحكم","punishment":["عقوبة1","عقوبة2","عقوبة3"],"closing":"جملة ختامية"}`;
+    const prompt = `أنت "الحَكَم"، قاضي محكمة الذكاء الاصطناعي الشعبية. أنت مصري 100%، ساخر جداً، لسانك حاد، بتتكلم بالعامية المصرية فقط. بتحب المبالغة الكوميدية وبتستخدم أمثال شعبية مصرية في أحكامك.
 
-    // هنا بنستخدم الـ Cloudflare Worker الآمن
+المشكلة المعروضة عليك: "${problem}"
+
+اكتب حكمك بصيغة JSON صالحة فقط (بدون أي كلام قبل أو بعد الـ JSON) بهذا الهيكل بالظبط:
+{"case_title":"عنوان القضية بشكل مبالغ ومضحك","degree":"درجة الجريمة من 100 مع سبب مضحك","accused":"المتهم ووصف كوميدي لشكله","victim":"المجني عليه ووصف كوميدي لحالته","analysis":"تحليل ساخر جداً بالعامية المصرية، استخدم أمثال شعبية، وبالغ في وصف الموقف بشكل كوميدي","verdict":"الحكم النهائي بصيغة قاضي محترم بس كلامه مضحك","punishment":["عقوبة 1 مجنونة ومضحكة","عقوبة 2 أصعب وأضحك","عقوبة 3 إهانة كوميدية خفيفة"],"judge_note":"ملاحظة جانبية من القاضي وهي بتسب في الشاي 😂","closing":"جملة ختامية درامية زي 'وبما إن المحكمة ملهاش رحمة، رُفعت الجلسة!'"}
+
+تعليمات مهمة جداً:
+- لازم تكون مضحك ومبالغ جداً في كل حاجة
+- استخدم تعبيرات عامية زي: "يا ابني"، "بص يا حبيبي"، "والله عيب"، "ده مينفعش خالص"
+- العقوبات لازم تكون سخيفة ومضحكة (زي: "يغسل أطباق شهر"، "يقف قدام المراية ويقول أنا غلطان 100 مرة")
+- درجة الجريمة لازم تكون مبالغ فيها بشكل كوميدي
+- لو المشكلة فيها خيانة أو كذب، خليك قاسي بس بطريقة مضحكة
+- لو المشكلة تافهة، اعمل قضية دولية من التافه ده 😂`;
+
     const response = await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile", // الـ Worker هيغيره تلقائياً لو كان مش متاح
         messages: [
           { role: "system", content: "أجب بصيغة JSON فقط." },
           { role: "user", content: prompt }
         ],
-        temperature: 0.9
+        temperature: 1.2
       })
     });
     
@@ -170,7 +178,6 @@ async function getVerdict() {
     let text = data.choices?.[0]?.message?.content;
     if (!text) throw new Error('لا يوجد رد من القاضي');
     
-    // تنظيف الرد من أي علامات markdown
     text = text.replace(/```json\s?/g, '').replace(/```\s?/g, '').trim();
     
     let result;
@@ -179,11 +186,13 @@ async function getVerdict() {
     } catch (e) { 
       result = { 
         case_title: '⚖️ حكم المحكمة', 
+        degree: '100/100',
         accused: 'غير محدد', 
         victim: 'غير محدد', 
         analysis: text, 
         verdict: 'انظر التحليل', 
         punishment: ['راجع التحليل'], 
+        judge_note: 'القاضي محتاج شاي',
         closing: '⚖️ رُفعت الجلسة!' 
       }; 
     }
@@ -191,11 +200,13 @@ async function getVerdict() {
     currentVerdict = result;
     document.getElementById('verdictContent').innerHTML = `
       <h3 style="color:#ffd700;text-align:center;margin-bottom:20px;">${result.case_title || '⚖️ قضية'}</h3>
+      <div class="verdict-item"><strong>📊 درجة الجريمة:</strong> ${result.degree || '-'}/100</div>
       <div class="verdict-item"><strong>👤 المتهم:</strong> ${result.accused || '-'}</div>
       <div class="verdict-item"><strong>👤 المجني عليه:</strong> ${result.victim || '-'}</div>
       <div class="verdict-item"><strong>🔍 التحليل:</strong><br>${result.analysis || '-'}</div>
       <div class="verdict-item"><strong>⚖️ الحكم:</strong><br>${result.verdict || '-'}</div>
       <div class="verdict-item"><strong>😂 العقوبة:</strong><ul>${(result.punishment || []).map(p => `<li>${p}</li>`).join('')}</ul></div>
+      <div class="verdict-item"><strong>☕ ملاحظة القاضي:</strong> ${result.judge_note || '-'}</div>
       <div class="closing">${result.closing || '⚖️ رُفعت الجلسة!'}</div>
     `;
     document.getElementById('verdict').style.display = 'block';
@@ -212,7 +223,7 @@ async function getVerdict() {
 function getShareText() {
   if (!currentVerdict) return '';
   const v = currentVerdict;
-  return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبة: ${v.punishment?.join(' | ')}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
+  return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n📊 درجة الجريمة: ${v.degree}/100\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبة: ${v.punishment?.join(' | ')}\n\n☕ ملاحظة القاضي: ${v.judge_note}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
 }
 
 function shareOn(p) {
