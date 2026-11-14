@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>⚖️ الحَكَم - محكمة الذكاء الاصطناعي</title>
+<!-- كود التحقق من AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5550731073318878" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -56,11 +58,13 @@ textarea:focus{outline:none;border-color:#ffd700}
 <button class="nav-btn" onclick="showPage('about')">ℹ️ من نحن</button>
 <button class="nav-btn" onclick="showPage('privacy')">🔒 الخصوصية</button>
 </div>
+
 <div id="page-home" class="page active">
 <textarea id="problem" placeholder="اكتب مشكلتك هنا..."></textarea>
 <button class="main-btn" id="judgeBtn" onclick="getVerdict()">🔥 احكم يا قاضي</button>
 <div class="loading" id="loading">⚖️ المحكمة بتفكر...</div>
 <div class="error" id="error"></div>
+
 <div class="verdict" id="verdict">
 <h2>📜 شهادة حكم نهائي</h2>
 <div id="verdictContent"></div>
@@ -76,6 +80,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 </div>
 </div>
 </div>
+
 <div id="page-examples" class="page">
 <div class="page-content">
 <h2>📜 أمثلة من أحكام المحكمة</h2>
@@ -93,6 +98,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 </div>
 </div>
 </div>
+
 <div id="page-about" class="page">
 <div class="page-content">
 <h2>ℹ️ من نحن</h2>
@@ -103,6 +109,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 <p>💡 <strong>نصيحة:</strong> الموقع ده للترفيه فقط، مش بديل عن المحامي الحقيقي! 😄</p>
 </div>
 </div>
+
 <div id="page-privacy" class="page">
 <div class="page-content">
 <h2>🔒 سياسة الخصوصية</h2>
@@ -111,40 +118,44 @@ textarea:focus{outline:none;border-color:#ffd700}
 <p><strong>2. الأمان:</strong> نستخدم تقنيات تشفير قياسية لحماية البيانات المرسلة. ننصح بعدم كتابة معلومات حساسة أو شخصية جداً.</p>
 </div>
 </div>
+
 <div class="footer">
 <p>⚖️ الحَكَم © 2026 - جميع الحقوق محفوظة</p>
 <p>صُنع بـ ❤️ في مصر</p>
 </div>
 </div>
+
 <script>
 let currentVerdict = null;
-function showPage(p){
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  if(event&&event.target) event.target.classList.add('active');
+
+function showPage(p) {
+  document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(x => x.classList.remove('active'));
+  document.getElementById('page-' + p).classList.add('active');
+  if (event && event.target) event.target.classList.add('active');
 }
-async function getVerdict(){
+
+async function getVerdict() {
   const problem = document.getElementById('problem').value.trim();
-  if(!problem){ alert('اكتب قضيتك الأول!'); return; }
+  if (!problem) { alert('اكتب قضيتك الأول!'); return; }
   
-  document.getElementById('loading').style.display='block';
-  document.getElementById('verdict').style.display='none';
-  document.getElementById('error').style.display='none';
-  document.getElementById('judgeBtn').disabled=true;
+  document.getElementById('loading').style.display = 'block';
+  document.getElementById('verdict').style.display = 'none';
+  document.getElementById('error').style.display = 'none';
+  document.getElementById('judgeBtn').disabled = true;
   
-  try{
+  try {
     const prompt = `أنت "الحَكَم"، قاضٍ مصري ساخر جداً يتحدث بالعامية المصرية فقط.
 المشكلة: "${problem}"
 ردك يجب أن يكون JSON صالح فقط (بدون أي كلام قبل أو بعد الـ JSON) بهذا الهيكل:
 {"case_title":"عنوان مضحك","accused":"المتهم","victim":"المجني عليه","analysis":"تحليل كوميدي","verdict":"الحكم","punishment":["عقوبة1","عقوبة2","عقوبة3"],"closing":"جملة ختامية"}`;
 
-    // هنا الرابط السحري اللي بيحمي المفتاح بتاعك
+    // هنا بنستخدم الـ Cloudflare Worker الآمن
     const response = await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: "llama-3.3-70b-specdec",
+        model: "llama-3.3-70b-versatile", // الـ Worker هيغيره تلقائياً لو كان مش متاح
         messages: [
           { role: "system", content: "أجب بصيغة JSON فقط." },
           { role: "user", content: prompt }
@@ -154,16 +165,27 @@ async function getVerdict(){
     });
     
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error?.message || 'خطأ في الاتصال');
+    if (!response.ok) throw new Error(data.error?.message || 'خطأ في الاتصال بالمحكمة');
     
     let text = data.choices?.[0]?.message?.content;
     if (!text) throw new Error('لا يوجد رد من القاضي');
     
+    // تنظيف الرد من أي علامات markdown
     text = text.replace(/```json\s?/g, '').replace(/```\s?/g, '').trim();
+    
     let result;
-    try { result = JSON.parse(text); } 
-    catch (e) { 
-      result = { case_title: '⚖️ حكم المحكمة', accused: 'غير محدد', victim: 'غير محدد', analysis: text, verdict: 'انظر التحليل', punishment: ['راجع التحليل'], closing: '⚖️ رُفعت الجلسة!' }; 
+    try { 
+      result = JSON.parse(text); 
+    } catch (e) { 
+      result = { 
+        case_title: '⚖️ حكم المحكمة', 
+        accused: 'غير محدد', 
+        victim: 'غير محدد', 
+        analysis: text, 
+        verdict: 'انظر التحليل', 
+        punishment: ['راجع التحليل'], 
+        closing: '⚖️ رُفعت الجلسة!' 
+      }; 
     }
     
     currentVerdict = result;
@@ -177,6 +199,7 @@ async function getVerdict(){
       <div class="closing">${result.closing || '⚖️ رُفعت الجلسة!'}</div>
     `;
     document.getElementById('verdict').style.display = 'block';
+    
   } catch (error) {
     document.getElementById('error').textContent = `❌ ${error.message}`;
     document.getElementById('error').style.display = 'block';
@@ -186,28 +209,28 @@ async function getVerdict(){
   }
 }
 
-function getShareText(){
-  if(!currentVerdict) return '';
+function getShareText() {
+  if (!currentVerdict) return '';
   const v = currentVerdict;
   return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبة: ${v.punishment?.join(' | ')}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
 }
 
-function shareOn(p){
+function shareOn(p) {
   const t = encodeURIComponent(getShareText());
   const u = encodeURIComponent(window.location.href);
   let s = '';
-  switch(p){
+  switch(p) {
     case 'whatsapp': s = `https://wa.me/?text=${t}`; break;
     case 'facebook': s = `https://www.facebook.com/sharer/sharer.php?u=${u}&quote=${t}`; break;
     case 'twitter': s = `https://twitter.com/intent/tweet?text=${t}`; break;
     case 'telegram': s = `https://t.me/share/url?url=${u}&text=${t}`; break;
   }
-  if(s) window.open(s, '_blank');
+  if (s) window.open(s, '_blank');
 }
 
-function copyVerdict(){
+function copyVerdict() {
   navigator.clipboard.writeText(getShareText()).then(() => alert('✅ تم نسخ الحكم!')).catch(() => alert('❌ فشل النسخ'));
 }
 </script>
 </body>
-  </html>
+</html>
