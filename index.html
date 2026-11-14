@@ -144,7 +144,7 @@ async function getVerdict(){
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: "mixtral-8x7b-32768",
+        model: "gemma2-9b-it",
         messages: [
           { role: "system", content: "أجب بصيغة JSON فقط." },
           { role: "user", content: prompt }
