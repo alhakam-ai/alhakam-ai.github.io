@@ -4,46 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="الحَكَم - محكمة الذكاء الاصطناعي الشعبية المصرية. احكي مشكلتك واستلم حكم مضحك وذكي بالعامية المصرية مع نصيحة حقيقية">
-<meta name="keywords" content="محكمة, ذكاء اصطناعي, حكم, مصري, كوميدي, ترفيه">
 <title>⚖️ الحَكَم - محكمة الذكاء الاصطناعي الشعبية</title>
-
-<!-- Google Tag (Analytics) -->
 <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MGBSH94T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
-
-<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5550731073318878" crossorigin="anonymous"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Cairo',sans-serif;background:linear-gradient(135deg,#0a0a0a 0%,#1a0a00 100%);color:#fff;min-height:100vh;padding:20px}
 .container{max-width:600px;margin:0 auto}
-h1{text-align:center;font-size:2.5em;color:#ffd700;margin-bottom:10px;cursor:pointer;animation:glow 2s ease-in-out infinite alternate}
-@keyframes glow{from{text-shadow:0 0 10px #ffd700,0 0 20px #ffd700}to{text-shadow:0 0 20px #ffed4e,0 0 30px #ffed4e}}
+h1{text-align:center;font-size:2.5em;color:#ffd700;margin-bottom:10px;cursor:pointer}
 .subtitle{text-align:center;color:#aaa;margin-bottom:30px;font-size:1.1em}
 .nav{display:flex;justify-content:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-.nav-btn{background:#1a1a1a;color:#ffd700;border:1px solid #ffd700;padding:8px 15px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:14px;cursor:pointer;transition:all 0.3s}
-.nav-btn:hover{background:#ffd700;color:#000;transform:scale(1.05)}
+.nav-btn{background:#1a1a1a;color:#ffd700;border:1px solid #ffd700;padding:8px 15px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:14px;cursor:pointer}
 .nav-btn.active{background:#ffd700;color:#000}
-textarea{width:100%;min-height:150px;padding:15px;border:2px solid #333;border-radius:10px;background:#1a1a1a;color:#fff;font-family:'Cairo',sans-serif;font-size:16px;margin-bottom:20px;resize:vertical;transition:border-color 0.3s}
+textarea{width:100%;min-height:150px;padding:15px;border:2px solid #333;border-radius:10px;background:#1a1a1a;color:#fff;font-family:'Cairo',sans-serif;font-size:16px;margin-bottom:20px;resize:vertical}
 textarea:focus{outline:none;border-color:#ffd700}
 .example-problems{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;justify-content:center}
-.example-btn{background:#2a1a00;color:#ffd700;border:1px solid #ff8c00;padding:6px 12px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;transition:all 0.3s}
-.example-btn:hover{background:#ff8c00;color:#fff;transform:scale(1.05)}
-.main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer;transition:all 0.3s}
-.main-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,215,0,0.5)}
-.main-btn:disabled{opacity:0.5;cursor:not-allowed}
-.verdict{margin-top:30px;padding:20px;background:#1a1a1a;border:2px solid #ffd700;border-radius:15px;display:none;animation:slideIn 0.5s ease-out}
-@keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.example-btn{background:#2a1a00;color:#ffd700;border:1px solid #ff8c00;padding:6px 12px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer}
+.example-btn:hover{background:#ff8c00;color:#fff}
+.main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer}
+.main-btn:disabled{opacity:0.5}
+.verdict{margin-top:30px;padding:20px;background:#1a1a1a;border:2px solid #ffd700;border-radius:15px;display:none}
 .verdict h2{color:#ffd700;margin-bottom:15px;text-align:center;font-size:1.5em}
-.verdict-item{margin:15px 0;padding:12px;background:#0a0a0a;border-radius:8px;border-right:3px solid #ffd700;transition:transform 0.3s}
-.verdict-item:hover{transform:translateX(-5px)}
-.verdict-item strong{color:#ffd700;display:block;margin-bottom:5px;font-size:1.1em}
+.verdict-item{margin:15px 0;padding:12px;background:#0a0a0a;border-radius:8px;border-right:3px solid #ffd700}
+.verdict-item strong{color:#ffd700;display:block;margin-bottom:5px}
 .verdict-item ul{padding-right:20px;margin-top:5px}
 .verdict-item li{margin:5px 0}
 .quote-box{background:linear-gradient(135deg,#1a1a1a,#2a2a1a);border:1px dashed #ffd700;border-radius:10px;padding:15px;margin:15px 0;font-style:italic;text-align:center;color:#ffed4e;font-size:1.1em}
@@ -56,8 +45,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 .share-section{margin-top:20px;padding-top:20px;border-top:2px dashed #ffd700;text-align:center}
 .share-title{color:#ffd700;margin-bottom:15px;font-size:1.2em}
 .share-buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.share-btn{padding:10px 15px;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:bold;cursor:pointer;color:#fff;transition:all 0.3s}
-.share-btn:hover{transform:scale(1.05)}
+.share-btn{padding:10px 15px;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:bold;cursor:pointer;color:#fff}
 .share-whatsapp{background:#25D366}
 .share-facebook{background:#1877F2}
 .share-twitter{background:#1DA1F2}
@@ -68,11 +56,10 @@ textarea:focus{outline:none;border-color:#ffd700}
 .page-content{background:#1a1a1a;padding:20px;border-radius:15px;border:1px solid #333;line-height:1.8}
 .page-content h2{color:#ffd700;margin-bottom:15px;border-bottom:2px solid #ffd700;padding-bottom:10px}
 .page-content p{margin-bottom:15px;color:#ddd}
-.example-card{background:#0a0a0a;padding:15px;border-radius:10px;margin-bottom:15px;border-right:3px solid #ffd700;transition:transform 0.3s}
-.example-card:hover{transform:translateX(-5px)}
+.example-card{background:#0a0a0a;padding:15px;border-radius:10px;margin-bottom:15px;border-right:3px solid #ffd700}
 .example-card h3{color:#ffd700;margin-bottom:10px}
 .footer{text-align:center;color:#666;margin-top:30px;padding-top:20px;border-top:1px solid #333;font-size:14px}
-.counter{text-align:center;color:#ffd700;margin:15px 0;font-size:0.9em}
+.counter{text-align:center;color:#ffd700;margin:15px 0;font-size:1em;font-weight:bold}
 </style>
 </head>
 <body>
@@ -87,7 +74,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 </div>
 
 <div id="page-home" class="page active">
-<div class="counter">📊 عدد الأحكام الصادرة: <span id="verdictCount">0</span></div>
+<div class="counter">📊 عدد الأحكام الصادرة من المحكمة: <span id="verdictCount">...</span></div>
 <textarea id="problem" placeholder="اكتب مشكلتك هنا... مثلاً: صاحبي سلفني فلوس ومردش، أو خطيبتي بتزعل مني على كل حاجة..."></textarea>
 <div class="example-problems">
 <button class="example-btn" onclick="setProblem('صاحبي سلفني 100 جنيه ومنسني')">💰 صاحبي نسياني</button>
@@ -98,7 +85,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 <button class="example-btn" onclick="setProblem('صاحبي بيتأخر دايماً')">⏰ التأخير المزمن</button>
 </div>
 <button class="main-btn" id="judgeBtn" onclick="getVerdict()">🔥 احكم يا قاضي</button>
-<div class="loading" id="loading">⚖️ المحكمة بتفكر... القاضي بيشرب شايه الأول ☕</div>
+<div class="loading" id="loading">⚖️ المحكمة بتفكر... القاضي بيلبس روبه ☕</div>
 <div class="error" id="error"></div>
 
 <div class="verdict" id="verdict">
@@ -132,12 +119,6 @@ textarea:focus{outline:none;border-color:#ffd700}
 <p><strong>الحكم:</strong> المتهم خارج عن الملة! الكشري بدون دقة زي الشاي بدون سكر - جريمة!</p>
 <p><strong>العقوبة:</strong> ياكل كشري سادة لمدة أسبوع كامل 😂</p>
 </div>
-<div class="example-card">
-<h3>⚖️ قضية التأخير المزمن</h3>
-<p><strong>المشكلة:</strong> صاحبي بيتأخر دايماً على المواعيد</p>
-<p><strong>الحكم:</strong> المتهم مدمن تأخير! الساعة عنده بتجري بسرعة الضوء!</p>
-<p><strong>العقوبة:</strong> يضبط 10 منبهات ويصحى بدري أسبوع كامل 😂</p>
-</div>
 </div>
 </div>
 
@@ -159,7 +140,7 @@ textarea:focus{outline:none;border-color:#ffd700}
 <p><strong>1. المعلومات التي نجمعها:</strong> نحن لا نجمع أي معلومات شخصية عنك. المشاكل التي تكتبها تُرسل مباشرة للمعالجة ولا يتم تخزينها على خوادمنا.</p>
 <p><strong>2. الأمان:</strong> نستخدم تقنيات تشفير قياسية لحماية البيانات المرسلة. ننصح بعدم كتابة معلومات حساسة أو شخصية جداً.</p>
 <p><strong>3. الإعلانات:</strong> هذا الموقع يستخدم إعلانات Google AdSense. قد تستخدم Google و شركائها ملفات تعريف الارتباط لعرض إعلانات بناءً على زياراتك السابقة لهذا الموقع أو لمواقع أخرى.</p>
-<p><strong>4. الإحصائيات:</strong> نستخدم Google Analytics لجمع بيانات مجهولة عن زيارات الموقع (مثل عدد الزوار والصفحات التي تمت زيارتها) بهدف تحسين الخدمة.</p>
+<p><strong>4. الإحصائيات:</strong> نستخدم Google Analytics لجمع بيانات مجهولة عن زيارات الموقع بهدف تحسين الخدمة.</p>
 <p><strong>5. حقوقك:</strong> يمكنك إيقاف الإعلانات المخصصة من إعدادات إعلانات Google على العنوان: https://www.google.com/settings/ads</p>
 </div>
 </div>
@@ -172,8 +153,17 @@ textarea:focus{outline:none;border-color:#ffd700}
 
 <script>
 let currentVerdict = null;
-let verdictCount = parseInt(localStorage.getItem('verdictCount') || '0');
-document.getElementById('verdictCount').textContent = verdictCount;
+
+async function loadCount() {
+  try {
+    const r = await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev/count');
+    const d = await r.json();
+    document.getElementById('verdictCount').textContent = d.count || '0';
+  } catch(e) {
+    document.getElementById('verdictCount').textContent = '0';
+  }
+}
+loadCount();
 
 function showPage(p) {
   document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
@@ -196,40 +186,204 @@ async function getVerdict() {
   document.getElementById('judgeBtn').disabled = true;
   
   try {
-    const prompt = `أنت "الحَكَم"، قاضي مصري شعبي، دمك خفيف جداً، بتتكلم عامية مصرية حقيقية 100% (زي أفلام الكوميديا المصرية). 
-ممنوع الفصحى. ممنوع الكلام المترجم حرفياً. جملك لازم تكون طبيعية، ساخرة بلطف، وفيها أمثال مصرية.
+    const prompt = `أنت "الحَكَم"، قاضي محكمة الذكاء الاصطناعي الشعبية المصرية. أنت مصري 100%، بتتكلم عامية مصرية حقيقية بس وبس. ممنوع الفصحى خالص.
+
+📚 القاموس الرسمي للمحكمة (لازم تستخدمه في أحكامك):
+
+**مصطلحات الصدمة والتأنيب:**
+- جاب آخره: الشخص اللي وصل لمرحلة الانفجار
+- قرصة ودن: عقوبة خفيفة بس موجعة نفسياً
+- مغيب عقلياً: اللي يعمل مصيبة ويبررها بحجج هبلة
+- بيحاور / بيفذلك: اللي بيلف ويدور بالكلام عشان يهرب من غلطته
+- نازل تطبيل: الشخص اللي بينحاز لحد تاني عشان مصلحته
+
+**مصطلحات الهزار والكرسي الساخن:**
+- يا فالح / يا عيني عليك: بتتقال بسخرية لاذعة
+- على الصامت: لما الحكم صارم ومفيهوش نقاش
+- هات المستندات / فرّغ المحادثات: لما الطرفين يدخلوا في خناقة على السوشيال ميديا
+- قنبلة أمن قومي: المشاكل التافهة اللي الناس مديها حجم أكبر من حجمها
+- لبس روب القاضي: لحظة الاستعداد لإصدار الحكم
+
+**أمثال شعبية:**
+- اللي اختتوا ماتوا: للشخص اللي بيعمل حاجات غريبة
+- جاء يبهوها عماها: لما حد يدخل يصلح غلطة فيطلع مصيبة أكبر
+- أكل عيش: الحجة الأزلية لكل واحد بيهمل أهله بحجة الشغل
+- عامل فيها السبع فسيخ: الشخص اللي داخل يفرعن وهو أضعف حلقة
+
+**مفردات الاتهام:**
+- مغيب: حالته ضائعة تماماً
+- مأفور: مبالغ في كذبته
+- متلبس: مسوكه بالجرم المشهود
+- مهفوف: دماغه طايشة
+- مفلوق: عينه زايغة وطماع
+- مكحرت: مفلس ومش لاقي يقرشها
+- مستظرف: بيحاول يدمه خفيف وهو دمه تقيل
+- مأنتخ: قاعد حاطط رجل على رجل ومطنش
+- مكفهر: بوز شبرين وزعلان من اللاشيء
+- مخروق: عنده مصيبة مالية
+
+**مفردات القاضي:**
+- قرصة: قرصة ودن تأديبية
+- شلوت: ركلة معنوية
+- تأنيب: محاضرة في الضمير
+- قصاص: العدل الإلهي الفوري
+- مطرقة: شاكوش القاضي للسكوت
+- جلسة: قعدة حساب عسيرة
+- حكم: كلام نهائي مفيش بعده
+- تغريم: دفع ثمن الغلط كاش
+- براءة: إفراج شكلي مع التحذير
+- استئناف: محاولة بائسة لتخفيف العقوبة
+
+**مفردات الكوميديا السوداء:**
+- مطب: مكيدة وقع فيها بغبائه
+- خازوق: مفاجأة غير سارة بالمرة
+- تورتة: غلطة كبيرة مترتبة بذكاء
+- عك: شغل متخبط ومبوظ الدنيا
+- فشوش: كلام فاضي وبلطجة على الفاضي
+- صداع: زن الخصم اللي مبيخلصش
+- حنجوري: اللي صوته عالي وهو غلطان
+- تخريف: كلام من كيسه ملهوش أساس
+- تزولق: الهروب من المسؤولية بذكاء مزيف
+- تنطيط: الحركة الزيادة بتاعة اللي حاسس نفسه صح
+
+**كلمات عامية إضافية:**
+- أفش: مسكني / كشفني
+- أرتك: خبيث / مكار
+- بجح: قليل الذوق
+- برطع: اتحرك بحرية مبالغ فيها
+- بهدلة: مرمطة
+- جلف: غليظ الطبع
+- حويط: ذكي / داهية
+- حنكش: ضعيف / مهزوز
+- خازوق: مصيبة كبيرة
+- خُلبوس: مراوغ / لعوب
+- دربكة: فوضى / زحمة
+- دُغري: مباشر / صريح
+- زلبطة: استغلال الآخرين
+- زنان: بيكرر الكلام كتير
+- سرسجي: فئة شعبية بصوت عالي
+- صياعة: ذكاء شعبي / شقاوة
+- طفس: طماع في الأكل
+- عَوّاج: متكبر
+- عَبِيط: غبي براءة
+- غشيم: متهور
+- فِرْدَة: فرد حذاء أو مقلب
+- فُتُّوّة: بلطجة محمولة
+- قَشْط: سرقة / أخذ الكل
+- كَحْيَان: فقير مفلس
+- لَفّيف: مراوغ
+- مُتلقح: قاعد بلا شغل
+- هَبَّاد: كذاب / فتاي
+- هَتّاك: فاضح
+- هزيان: كلام غير منطقي
+
+**مصطلحات إضافية:**
+- فهلوي: ذكي بطريقة ملتوية
+- أكلشيه: كلام محفوظ وجاهز
+- حوير: ذكي جداً
+- سرداب: مكان مظلم / موقف صعب
+- هجايص: كلام كثير بدون معنى
+- لتلت: ثلث / جزء صغير
+- رغي: كلام كثير
+- فتي: ضعيف
+- زرجنة: لخبطة
+- كشري: أكلة شعبية / موقف مختلط
+- شلبيات: حيل ومكايد
+- هلس: كلام بدون توقف
+- سحسحة: كسل وتراخي
+- بلكونة: مكان المراقبة
+- صرعة: لحظة الذكاء
+- هوس: obsession
+- تفلسف: كلام معقد بدون داعي
+- فذلكة: لف ودوران في الكلام
+- برطمة: كلام غير واضح
+- تكشيرة: وجه عابس
+- بوز: وجه
+- نحنوح: سعال / توتر
+- حريقة: موقف محرج
+- ولعة: حماس زائد
+- فازلين: تملق
+- فركش: خدش / إهانة خفيفة
+- كروتة: ضربة قوية
+- جلجل: صوت عالي
+- خوازيق: مصائب كبيرة
+- فضايح: مواقف محرجة
+- سكرينات: صور المحادثات
+
+**أفعال عامية:**
+- لغوصة: غوص في المشكلة
+- تشنيع: وصف بشع
+- طأطأة: خضوع
+- تفاصيح: تفاصيل كثيرة
+- تبلطح: استلقاء
+- تنطيش: تجاهل
+- تفرعن: تكبر
+- تكشير: إظهار الغضب
+- تنميط: تصنيف
+- تبرطيم: كلام غير واضح
+- تلزيق: إلصاق التهمة
+- تلطيش: ضرب خفيف
+- تعشيش: استقرار في مكان
+- تفريغ: إفراغ المحتوى
+- تشحيذ: حدة
+- تمسيح: مسح
+- تقمُّص: تقمص شخصية
+- تملُّص: هروب
+- تشويش: إرباك
+- شلتحة: ضربة
+- مرمطة: إهانة
+- زلابيو: لخبطة
+- فرتكة: حركة سريعة
+- كرتت: دحرجة
+- لخبطت: خلط
+- طفست: طمع
+- بحلقت: فتح العينين
+- كشرت: إظهار الأسنان
+- تنحت: نحت / تشكيل
+- شخت: صوت عالي
+- ربطت: ربط
+- فككت: تفكيك
+- ولعت: اشتعل
+- طفيت: انطفأ
+- زأرت: زئير
+- كتمت: كتمان
+- قطمت: قضم
 
 المشكلة: "${problem}"
 
 رد بصيغة JSON فقط (بدون أي كلام قبل أو بعد):
 {
-  "case_title": "عنوان مضحك جداً (مثال: قضية السهران اللي بيحول الليل لنهار)",
+  "case_title": "عنوان مضحك جداً باستخدام مصطلحات من القاموس",
   "degree": "رقم من 100",
-  "degree_reason": "مثل مصري شعبي يناسب الموقف (مثال: اللي يتجوز قرد يشوف قرد)",
-  "accused": "وصف كوميدي للمتهم (مثال: صاحبك اللي الساعة عنده مجرد ديكور)",
-  "victim": "وصف كوميدي للمجني عليه (مثال: أنت اللي كبرت في الاستنا)",
-  "analysis": "تحليل مضحك (2-3 جمل) يشرح الموقف بذكاء وسخرية مصرية",
-  "verdict": "الحكم النهائي بصيغة قاضي مصري بيهدد بلطف",
-  "punishment": ["عقوبة 1 مضحكة وعملية", "عقوبة 2 محرجة شوية", "عقوبة 3 سخيفة"],
-  "judge_advice": "نصيحة من القلب بالعامية (مثال: يا ابني، الكلام بيحل مشاكل أكتر من الصمت)",
-  "life_lesson": "الحكمة من الموضوع في جملة واحدة",
+  "degree_reason": "مثل شعبي أو مصطلح من القاموس",
+  "accused": "وصف المتهم باستخدام مصطلحات من القاموس",
+  "victim": "وصف المجني عليه باستخدام مصطلحات من القاموس",
+  "analysis": "تحليل مضحك (3-4 جمل) باستخدام مصطلحات من القاموس",
+  "verdict": "الحكم النهائي باستخدام مصطلحات من القاموس",
+  "punishment": ["عقوبة 1 باستخدام مصطلحات من القاموس", "عقوبة 2", "عقوبة 3"],
+  "judge_advice": "نصيحة من القاضي باستخدام مصطلحات من القاموس",
+  "life_lesson": "الحكمة من الموضوع",
   "related_cases": ["قضية مشابهة 1", "قضية مشابهة 2", "قضية مشابهة 3"],
-  "judge_quote": "جملة ختامية ساخرة من القاضي (مثال: المحكمة دي ملهاش رحمة، بس عندها شاي)",
-  "real_advice": "نصيحة حقيقية وجيدة جداً لحل المشكلة فعلياً (2-3 جمل واضحة ومباشرة)",
-  "closing": "جملة ختامية تقليدية للمحكمة (مثال: وبما إن الحق واضح، رُفعت الجلسة!)"
+  "judge_quote": "اقتباس من القاضي باستخدام مصطلحات من القاموس",
+  "real_advice": "نصيحة حقيقية مفيدة بالعامية (2-3 جمل)",
+  "closing": "جملة ختامية"
 }
 
-⚠️ تحذير هام: 
-- لا تقل "الوقت هو أصول" أو "مستحقة يلاقي وقت" (هذا كلام مترجم وآلي).
-- قل بدلاً من ذلك: "يا ريس، الوقت بيقطع رقابنا، وإنت لسه بتستنى؟"
-- استخدم كلمات مصرية حقيقية: "بص"، "اسمعني كويس"، "يا ساتر"، "ده مينفعش خالص".`;
+⚠️ قواعد مهمة جداً:
+- استخدم مصطلحات من القاموس في كل حقل
+- جملك قصيرة وبسيطة
+- عامية مصرية صحيحة 100%
+- من غير أخطاء إملائية
+- دماغة خفيفة ومحترمة
+- متكتبش جمل طويلة
+- ممنوع الفصحى خالص`;
 
     const response = await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         messages: [
-          { role: "system", content: "أجب بصيغة JSON فقط. تكلم بالعامية المصرية البسيطة والطبيعية جداً. تجنب الترجمة الحرفية." },
+          { role: "system", content: "أجب بصيغة JSON فقط. تكلم بالعامية المصرية البسيطة. استخدم مصطلحات من القاموس." },
           { role: "user", content: prompt }
         ],
         temperature: 1.1
@@ -254,26 +408,29 @@ async function getVerdict() {
         degree_reason: 'الحياة مش ورد',
         accused: 'المتهم', 
         victim: 'المجني عليه', 
-        analysis: 'المشكلة محتاجة حل، وكتر الكلام يوجع الراس', 
-        verdict: 'الحكم لصالح العدالة والمنطق', 
-        punishment: ['فكر في الموضوع كويس', 'اتكلم مع الطرف التاني', 'الحل في الحوار'], 
-        judge_advice: 'يا ابني، الصبر مفتاح الفرج، بس مش لدرجة إنك تنسى حقك',
-        life_lesson: 'كل مشكلة ليها حل، بس لازم نفتح عيننا',
-        related_cases: ['قضية النسيان المزمن', 'قضية الأعذار الواهية', 'قضية الوعود الكيدية'],
-        judge_quote: 'القاضي بيحب الشاي، بس بيكره الأعذار ☕',
-        real_advice: 'حاول تفهم الطرف التاني وتتواصل معه بهدوء. لو المشكلة مستمرة، لازم تحط حدود واضحة لعلاقتك بيه.',
-        closing: '⚖️ وبما إن الحق واضح، رُفعت الجلسة!'
+        analysis: 'المشكلة محتاجة حل', 
+        verdict: 'الحكم لصالح العدالة', 
+        punishment: ['فكر في الموضوع', 'اتكلم مع الطرف التاني', 'الحل في الحوار'], 
+        judge_advice: 'الصبر مفتاح الفرج',
+        life_lesson: 'كل مشكلة ليها حل',
+        related_cases: ['قضية 1', 'قضية 2', 'قضية 3'],
+        judge_quote: 'القاضي بيحب الشاي ☕',
+        real_advice: 'حاول تفهم الطرف التاني وتتواصل معه بهدوء',
+        closing: '⚖️ رُفعت الجلسة!'
       }; 
     }
     
     currentVerdict = result;
-    verdictCount++;
-    localStorage.setItem('verdictCount', verdictCount);
-    document.getElementById('verdictCount').textContent = verdictCount;
+    
+    // زيادة العداد
+    try {
+      await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev/count');
+      loadCount();
+    } catch(e) {}
     
     document.getElementById('verdictContent').innerHTML = `
       <h3 style="color:#ffd700;text-align:center;margin-bottom:20px;font-size:1.4em;">${result.case_title || '⚖️ قضية'}</h3>
-      <div class="verdict-item"><strong>📊 درجة الجريمة:</strong> ${result.degree || '-'} / 100 <br><em style="color:#aaa;font-size:0.9em;">"${result.degree_reason || ''}"</em></div>
+      <div class="verdict-item"><strong>📊 درجة الجريمة:</strong> ${result.degree || '-'} / 100 <br><em style="color:#aaa;font-size:0.9em;">${result.degree_reason || ''}</em></div>
       <div class="verdict-item"><strong>👤 المتهم:</strong> ${result.accused || '-'}</div>
       <div class="verdict-item"><strong>👤 المجني عليه:</strong> ${result.victim || '-'}</div>
       <div class="verdict-item"><strong>🔍 تحليل القاضي:</strong><br>${result.analysis || '-'}</div>
@@ -303,25 +460,7 @@ async function getVerdict() {
 function getShareText() {
   if (!currentVerdict) return '';
   const v = currentVerdict;
-  return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n📊 درجة الجريمة: ${v.degree}/100 - "${v.degree_reason}"\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبات: ${v.punishment?.join(' | ')}\n\n💡 نصيحة القاضي: ${v.judge_advice}\n\n"${v.judge_quote}"\n\n💚 نصيحة حقيقية: ${v.real_advice}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
+  return `⚖️ حكم المحكمة الشعبية:\n\n${v.case_title}\n\n📊 درجة الجريمة: ${v.degree}/100 - ${v.degree_reason}\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n🔍 التحليل: ${v.analysis}\n\n⚖️ الحكم: ${v.verdict}\n\n😂 العقوبات: ${v.punishment?.join(' | ')}\n\n💡 نصيحة القاضي: ${v.judge_advice}\n🎓 الدرس: ${v.life_lesson}\n\n"${v.judge_quote}"\n\n💚 نصيحة حقيقية: ${v.real_advice}\n\n${v.closing}\n\nجرب بنفسك: ${window.location.href}`;
 }
 
-function shareOn(p) {
-  const t = encodeURIComponent(getShareText());
-  const u = encodeURIComponent(window.location.href);
-  let s = '';
-  switch(p) {
-    case 'whatsapp': s = `https://wa.me/?text=${t}`; break;
-    case 'facebook': s = `https://www.facebook.com/sharer/sharer.php?u=${u}&quote=${t}`; break;
-    case 'twitter': s = `https://twitter.com/intent/tweet?text=${t}`; break;
-    case 'telegram': s = `https://t.me/share/url?url=${u}&text=${t}`; break;
-  }
-  if (s) window.open(s, '_blank');
-}
-
-function copyVerdict() {
-  navigator.clipboard.writeText(getShareText()).then(() => alert('✅ تم نسخ الحكم!')).catch(() => alert('❌ فشل النسخ'));
-}
-</script>
-</body>
-</html>
+functi
