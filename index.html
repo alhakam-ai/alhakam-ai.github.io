@@ -23,9 +23,6 @@ h1{text-align:center;font-size:2.5em;color:#ffd700;margin-bottom:10px;cursor:poi
 .nav-btn.active{background:#ffd700;color:#000}
 textarea{width:100%;min-height:150px;padding:15px;border:2px solid #333;border-radius:10px;background:#1a1a1a;color:#fff;font-family:'Cairo',sans-serif;font-size:16px;margin-bottom:20px;resize:vertical;line-height:1.8}
 textarea:focus{outline:none;border-color:#ffd700}
-.example-problems{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;justify-content:center}
-.example-btn{background:#2a1a00;color:#ffd700;border:1px solid #ff8c00;padding:6px 12px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;transition:all 0.3s}
-.example-btn:hover{background:#ff8c00;color:#fff}
 .main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer;transition:all 0.3s}
 .main-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,215,0,0.5)}
 .main-btn:disabled{opacity:0.5;cursor:not-allowed}
@@ -63,37 +60,26 @@ textarea:focus{outline:none;border-color:#ffd700}
 .page-content a:hover{text-decoration:underline}
 .example-card{background:#0a0a0a;padding:15px;border-radius:10px;margin-bottom:15px;border-right:3px solid #ffd700}
 .example-card h3{color:#ffd700;margin-bottom:10px;line-height:1.8}
-.footer{text-align:center;color:#666;margin-top:30px;padding-top:20px;border-top:1px solid #333;font-size:14px;line-height:2}
+.footer{margin-top:40px;padding-top:20px;border-top:1px solid #333}
+.footer-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.footer-nav-btn{background:#1a1a1a;color:#ffd700;border:1px solid #ffd700;padding:8px 15px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:14px;cursor:pointer;transition:all 0.3s}
+.footer-nav-btn:hover{background:#ffd700;color:#000}
+.footer-text{text-align:center;color:#666;font-size:14px;line-height:2;margin-bottom:5px}
 .counter{text-align:center;color:#ffd700;margin:15px 0;font-size:1em;font-weight:bold}
-.contact-form{background:#0a0a0a;padding:20px;border-radius:10px;margin-top:15px}
-.contact-form input,.contact-form textarea{width:100%;padding:10px;margin-bottom:10px;border:1px solid #333;border-radius:8px;background:#1a1a1a;color:#fff;font-family:'Cairo',sans-serif}
-.contact-form button{background:#ffd700;color:#000;border:none;padding:10px 20px;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:bold;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="container">
-<h1 onclick="showPage('home')">⚖️ الحَكَم</h1>
+<h1 onclick="showPage('home',event)">⚖️ الحَكَم</h1>
 <p class="subtitle">محكمة الذكاء الاصطناعي الشعبية</p>
 <div class="nav">
-<button class="nav-btn active" onclick="showPage('home')">🏠 الرئيسية</button>
-<button class="nav-btn" onclick="showPage('examples')">📜 أمثلة</button>
-<button class="nav-btn" onclick="showPage('faq')">❓ أسئلة شائعة</button>
-<button class="nav-btn" onclick="showPage('contact')">📞 اتصل بنا</button>
-<button class="nav-btn" onclick="showPage('terms')">📄 الشروط</button>
-<button class="nav-btn" onclick="showPage('privacy')">🔒 الخصوصية</button>
+<button class="nav-btn active" onclick="showPage('home',event)">🏠 الرئيسية</button>
+<button class="nav-btn" onclick="showPage('examples',event)">📜 أمثلة</button>
 </div>
 
 <div id="page-home" class="page active">
 <div class="counter">📊 عدد الأحكام الصادرة: <span id="verdictCount">...</span></div>
-<textarea id="problem" placeholder="اكتب مشكلتك هنا... مثلاً: صاحبي سلفني فلوس ومردش، أو خطيبتي بتزعل مني على كل حاجة..."></textarea>
-<div class="example-problems">
-<button class="example-btn" onclick="setProblem('صاحبي سلفني 100 جنيه ومنسني')">💰 صاحبي نسياني</button>
-<button class="example-btn" onclick="setProblem('مراتي بتزعل مني إني بنام بدري')">😴 بنام بدري</button>
-<button class="example-btn" onclick="setProblem('خطيبتي بتقارنني بصاحبها القديم')">👤 المقارنة</button>
-<button class="example-btn" onclick="setProblem('صاحبي بياكل من أكلي دايماً')">🍕 لص الأكل</button>
-<button class="example-btn" onclick="setProblem('مامتي بتقارنني بإخواتي')">👨‍👩‍👧‍👦 المقارنة العائلية</button>
-<button class="example-btn" onclick="setProblem('صاحبي بيتأخر دايماً')">⏰ التأخير</button>
-</div>
+<textarea id="problem" placeholder="اكتب مشكلتك هنا..."></textarea>
 <button class="main-btn" id="judgeBtn" onclick="getVerdict()">🔥 احكم يا قاضي</button>
 <div class="loading" id="loading">⚖️ المحكمة بتفكر... القاضي بيلبس روبه ☕</div>
 <div class="error" id="error"></div>
@@ -165,12 +151,6 @@ textarea:focus{outline:none;border-color:#ffd700}
 <p><strong>البريد الإلكتروني:</strong> karemala753@gmail.com</p>
 <p><strong>ساعات الرد:</strong> نرد على جميع الاستفسارات خلال 24 ساعة.</p>
 <p>نقدر ملاحظاتك لأنها تساعدنا على تحسين تجربة المحكمة الشعبية وتقديم أحكام أكثر دقة ومرحاً!</p>
-<div class="contact-form">
-<input type="text" placeholder="اسمك" id="contactName">
-<input type="email" placeholder="بريدك الإلكتروني" id="contactEmail">
-<textarea placeholder="رسالتك" id="contactMessage" style="min-height:100px"></textarea>
-<button onclick="sendContact()">📤 إرسال</button>
-</div>
 </div>
 </div>
 
@@ -205,22 +185,39 @@ textarea:focus{outline:none;border-color:#ffd700}
 </div>
 </div>
 
+<!-- الفوتر في آخر الصفحة -->
 <div class="footer">
-<p>⚖️ الحَكَم © 2026 - جميع الحقوق محفوظة</p>
-<p>صُنع بـ ❤️ في مصر</p>
+<div class="footer-nav">
+<button class="footer-nav-btn" onclick="showPage('faq',event)">❓ أسئلة شائعة</button>
+<button class="footer-nav-btn" onclick="showPage('contact',event)">📞 اتصل بنا</button>
+<button class="footer-nav-btn" onclick="showPage('terms',event)">📄 الشروط</button>
+<button class="footer-nav-btn" onclick="showPage('privacy',event)">🔒 الخصوصية</button>
 </div>
+<p class="footer-text">⚖️ الحَكَم © 2026 - جميع الحقوق محفوظة</p>
+<p class="footer-text">صُنع بـ ❤️ في مصر</p>
+</div>
+
 </div>
 
 <script>
 let currentVerdict=null;
 const WORKER_URL='https://patient-glade-8b6e.karemala753.workers.dev';
 
-async function loadCount(){try{const r=await fetch(WORKER_URL+'/count');const d=await r.json();document.getElementById('verdictCount').textContent=d.count||'0';}catch(e){document.getElementById('verdictCount').textContent='0';}}
+async function loadCount(){try{const r=await fetch(WORKER_URL+'/count');const d=await r.json();document.getElementById('verdictCount').textContent=d.count||'0';}catch(e){document.getElementById('verdictCount').textContent='...';}}
 loadCount();
 
-function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');if(event&&event.target)event.target.classList.add('active');}
-
-function setProblem(t){document.getElementById('problem').value=t;}
+function showPage(p,e){
+try{
+document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
+const pg=document.getElementById('page-'+p);
+if(pg)pg.classList.add('active');
+if(e&&e.target){
+if(e.target.classList.contains('nav-btn'))e.target.classList.add('active');
+}
+window.scrollTo({top:0,behavior:'smooth'});
+}catch(err){console.error('showPage error:',err);}
+}
 
 async function getVerdict(){
 const problem=document.getElementById('problem').value.trim();
@@ -284,4 +281,7 @@ function getShareText(){if(!currentVerdict)return'';const v=currentVerdict;retur
 
 function shareOn(p){const t=encodeURIComponent(getShareText());const u=encodeURIComponent(window.location.href);let s='';switch(p){case'whatsapp':s=`https://wa.me/?text=${t}`;break;case'facebook':s=`https://www.facebook.com/sharer/sharer.php?u=${u}&quote=${t}`;break;case'twitter':s=`https://twitter.com/intent/tweet?text=${t}`;break;case'telegram':s=`https://t.me/share/url?url=${u}&text=${t}`;break;}if(s)window.open(s,'_blank');}
 
-function copyVerdi
+function copyVerdict(){navigator.clipboard.writeText(getShareText()).then(()=>alert('✅ تم النسخ!')).catch(()=>alert('❌ فشل'));}
+</script>
+</body>
+  </html>
