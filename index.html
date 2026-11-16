@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="الحَكَم - محكمة الذكاء الاصطناعي الشعبية المصرية وقاموس العامية المصرية">
+<meta name="description" content="الحَكَم - محكمة الذكاء الاصطناعي الشعبية المصرية. احكي مشكلتك واستلم حكم مضحك وذكي بالعامية المصرية">
+<meta name="keywords" content="محكمة, ذكاء اصطناعي, حكم, مصري, كوميدي, ترفيه, Gemini">
 <title>⚖️ الحَكَم - محكمة الذكاء الاصطناعي الشعبية</title>
 <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MGBSH94T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());</script>
@@ -17,16 +18,19 @@ body{font-family:'Cairo',sans-serif;background:linear-gradient(135deg,#0a0a0a 0%
 h1{text-align:center;font-size:2.5em;color:#ffd700;margin-bottom:10px;cursor:pointer}
 .subtitle{text-align:center;color:#aaa;margin-bottom:30px;font-size:1.1em;line-height:1.8}
 .nav{display:flex;justify-content:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-.nav-btn{background:#1a1a1a;color:#ffd700;border:1px solid #ffd700;padding:8px 15px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:14px;cursor:pointer}
+.nav-btn{background:#1a1a1a;color:#ffd700;border:1px solid #ffd700;padding:8px 15px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:14px;cursor:pointer;transition:all 0.3s}
+.nav-btn:hover{background:#ffd700;color:#000}
 .nav-btn.active{background:#ffd700;color:#000}
 textarea{width:100%;min-height:150px;padding:15px;border:2px solid #333;border-radius:10px;background:#1a1a1a;color:#fff;font-family:'Cairo',sans-serif;font-size:16px;margin-bottom:20px;resize:vertical;line-height:1.8}
 textarea:focus{outline:none;border-color:#ffd700}
 .example-problems{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;justify-content:center}
-.example-btn{background:#2a1a00;color:#ffd700;border:1px solid #ff8c00;padding:6px 12px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer}
+.example-btn{background:#2a1a00;color:#ffd700;border:1px solid #ff8c00;padding:6px 12px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;transition:all 0.3s}
 .example-btn:hover{background:#ff8c00;color:#fff}
-.main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer}
-.main-btn:disabled{opacity:0.5}
-.verdict{margin-top:30px;padding:20px;background:#1a1a1a;border:2px solid #ffd700;border-radius:15px;display:none}
+.main-btn{width:100%;padding:15px;background:linear-gradient(135deg,#ffd700,#ffed4e);color:#000;border:none;border-radius:10px;font-family:'Cairo',sans-serif;font-size:18px;font-weight:bold;cursor:pointer;transition:all 0.3s}
+.main-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 5px 20px rgba(255,215,0,0.5)}
+.main-btn:disabled{opacity:0.5;cursor:not-allowed}
+.verdict{margin-top:30px;padding:20px;background:#1a1a1a;border:2px solid #ffd700;border-radius:15px;display:none;animation:slideIn 0.5s ease-out}
+@keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .verdict h2{color:#ffd700;margin-bottom:15px;text-align:center;font-size:1.5em;line-height:1.8}
 .verdict-item{margin:15px 0;padding:15px;background:#0a0a0a;border-radius:8px;border-right:4px solid #ffd700;line-height:2.2;word-wrap:break-word;overflow-wrap:break-word}
 .verdict-item strong{color:#ffd700;display:block;margin-bottom:10px;font-size:1.1em;line-height:1.8}
@@ -43,7 +47,8 @@ textarea:focus{outline:none;border-color:#ffd700}
 .share-section{margin-top:20px;padding-top:20px;border-top:2px dashed #ffd700;text-align:center}
 .share-title{color:#ffd700;margin-bottom:15px;font-size:1.2em}
 .share-buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.share-btn{padding:10px 15px;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:bold;cursor:pointer;color:#fff}
+.share-btn{padding:10px 15px;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:bold;cursor:pointer;color:#fff;transition:all 0.3s}
+.share-btn:hover{transform:scale(1.05)}
 .share-whatsapp{background:#25D366}
 .share-facebook{background:#1877F2}
 .share-twitter{background:#1DA1F2}
@@ -54,21 +59,15 @@ textarea:focus{outline:none;border-color:#ffd700}
 .page-content{background:#1a1a1a;padding:20px;border-radius:15px;border:1px solid #333;line-height:2.2}
 .page-content h2{color:#ffd700;margin-bottom:15px;border-bottom:2px solid #ffd700;padding-bottom:10px;line-height:1.8}
 .page-content p{margin-bottom:15px;color:#ddd;line-height:2}
+.page-content a{color:#ffd700;text-decoration:none}
+.page-content a:hover{text-decoration:underline}
 .example-card{background:#0a0a0a;padding:15px;border-radius:10px;margin-bottom:15px;border-right:3px solid #ffd700}
 .example-card h3{color:#ffd700;margin-bottom:10px;line-height:1.8}
 .footer{text-align:center;color:#666;margin-top:30px;padding-top:20px;border-top:1px solid #333;font-size:14px;line-height:2}
 .counter{text-align:center;color:#ffd700;margin:15px 0;font-size:1em;font-weight:bold}
-.search-box{width:100%;padding:12px;border:2px solid #ffd700;border-radius:10px;background:#0a0a0a;color:#fff;font-family:'Cairo',sans-serif;font-size:16px;margin-bottom:15px}
-.search-box:focus{outline:none;background:#1a1a1a}
-.letter-filter{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:15px;justify-content:center}
-.letter-btn{background:#1a1a1a;color:#ffd700;border:1px solid #ffd700;padding:5px 10px;border-radius:15px;font-size:14px;cursor:pointer}
-.letter-btn.active{background:#ffd700;color:#000}
-.dict-word{background:#0a0a0a;padding:12px;border-radius:8px;margin-bottom:10px;border-right:3px solid #ff8c00;line-height:2}
-.dict-word .word{color:#ffd700;font-size:1.2em;font-weight:bold}
-.dict-word .meaning{color:#fff;margin:5px 0;line-height:2}
-.dict-word .example{color:#aaa;font-size:0.9em;font-style:italic;line-height:1.8}
-.dict-cat{color:#ff8c00;font-size:0.8em;margin-right:10px}
-.dict-count{text-align:center;color:#ffd700;margin:10px 0;font-size:0.9em}
+.contact-form{background:#0a0a0a;padding:20px;border-radius:10px;margin-top:15px}
+.contact-form input,.contact-form textarea{width:100%;padding:10px;margin-bottom:10px;border:1px solid #333;border-radius:8px;background:#1a1a1a;color:#fff;font-family:'Cairo',sans-serif}
+.contact-form button{background:#ffd700;color:#000;border:none;padding:10px 20px;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:bold;cursor:pointer}
 </style>
 </head>
 <body>
@@ -78,14 +77,15 @@ textarea:focus{outline:none;border-color:#ffd700}
 <div class="nav">
 <button class="nav-btn active" onclick="showPage('home')">🏠 الرئيسية</button>
 <button class="nav-btn" onclick="showPage('examples')">📜 أمثلة</button>
-<button class="nav-btn" onclick="showPage('dictionary')">📚 القاموس</button>
-<button class="nav-btn" onclick="showPage('about')">ℹ️ من نحن</button>
+<button class="nav-btn" onclick="showPage('faq')">❓ أسئلة شائعة</button>
+<button class="nav-btn" onclick="showPage('contact')">📞 اتصل بنا</button>
+<button class="nav-btn" onclick="showPage('terms')">📄 الشروط</button>
 <button class="nav-btn" onclick="showPage('privacy')">🔒 الخصوصية</button>
 </div>
 
 <div id="page-home" class="page active">
 <div class="counter">📊 عدد الأحكام الصادرة: <span id="verdictCount">...</span></div>
-<textarea id="problem" placeholder="اكتب مشكلتك هنا..."></textarea>
+<textarea id="problem" placeholder="اكتب مشكلتك هنا... مثلاً: صاحبي سلفني فلوس ومردش، أو خطيبتي بتزعل مني على كل حاجة..."></textarea>
 <div class="example-problems">
 <button class="example-btn" onclick="setProblem('صاحبي سلفني 100 جنيه ومنسني')">💰 صاحبي نسياني</button>
 <button class="example-btn" onclick="setProblem('مراتي بتزعل مني إني بنام بدري')">😴 بنام بدري</button>
@@ -115,40 +115,76 @@ textarea:focus{outline:none;border-color:#ffd700}
 
 <div id="page-examples" class="page">
 <div class="page-content">
-<h2>📜 أمثلة أحكام</h2>
+<h2>📜 أمثلة من أحكام المحكمة</h2>
 <div class="example-card">
 <h3>⚖️ قضية نسيان عيد الميلاد</h3>
-<p><strong>المشكلة:</strong> نسيت عيد ميلاد خطيبتي</p>
-<p><strong>الحكم:</strong> المتهم غلطان 85%. عيد الميلاد مش فاتورة كهرباء!</p>
-<p><strong>العقوبة:</strong> يغني لها قدام الجيران 😂</p>
+<p><strong>المشكلة:</strong> نسيت عيد ميلاد خطيبتي وقولت لها إن الشغل كان كتير</p>
+<p><strong>مرافعة النيابة:</strong> يا سيدي، المتهم كان مشغول بأكل العيش، ومفيش حد فاكر كل حاجة في الدنيا. الخطيبة كمان مخطية، كان لازم تفكره!</p>
+<p><strong>الحكم:</strong> المتهم غلطان بنسبة 85%. الشغل مش عذر، عيد الميلاد مش فاتورة كهرباء!</p>
+<p><strong>العقوبة:</strong> يجيب علبة شوكولاتة ويغني لها قدام الجيران 😂</p>
 </div>
 <div class="example-card">
 <h3>⚖️ قضية الكشري بدون دقة</h3>
-<p><strong>المشكلة:</strong> الكشري من غير دقة أحلى</p>
-<p><strong>الحكم:</strong> المتهم خارج عن الملة!</p>
-<p><strong>العقوبة:</strong> كشري سادة أسبوع كامل 😂</p>
+<p><strong>المشكلة:</strong> صاحبي قال إن الكشري من غير دقة أحلى</p>
+<p><strong>مرافعة النيابة:</strong> يا فندم، المتهم حر في أكله، ومفيش قانون يمنع حد ياكل الكشري سادة. ده ذوق شخصي!</p>
+<p><strong>الحكم:</strong> المتهم خارج عن الملة! الكشري بدون دقة زي الشاي بدون سكر - جريمة!</p>
+<p><strong>العقوبة:</strong> ياكل كشري سادة لمدة أسبوع كامل 😂</p>
+</div>
+<div class="example-card">
+<h3>⚖️ قضية التأخير المزمن</h3>
+<p><strong>المشكلة:</strong> صاحبي بيتأخر دايماً على المواعيد</p>
+<p><strong>مرافعة النيابة:</strong> يا سيدي، المواعيد في مصر مجرد اقتراحات، مش التزامات. المتهم بريء من تهمة "الوقت"!</p>
+<p><strong>الحكم:</strong> المتهم مدمن تأخير! الساعة عنده بتجري بسرعة الضوء!</p>
+<p><strong>العقوبة:</strong> يضبط 10 منبهات ويصحى بدري أسبوع كامل 😂</p>
 </div>
 </div>
 </div>
 
-<div id="page-dictionary" class="page">
+<div id="page-faq" class="page">
 <div class="page-content">
-<h2>📚 قاموس العامية المصرية</h2>
-<p style="text-align:center;color:#ffd700;margin-bottom:15px;line-height:2;">أكبر قاموس للعامية المصرية - أكثر من 200 كلمة!</p>
-<input type="text" class="search-box" id="dictSearch" placeholder="🔍 ابحث عن كلمة..." oninput="filterDict()">
-<div class="letter-filter" id="letterFilter"></div>
-<div class="dict-count" id="dictCount"></div>
-<div id="dictContent"></div>
+<h2>❓ أسئلة شائعة</h2>
+<p><strong>س: الموقع ده بياخد فلوس؟</strong></p>
+<p>ج: لأ خالص! الموقع مجاني 100% ومفيش أي رسوم.</p>
+<p><strong>س: الأحكام دي حقيقية ولا هزار؟</strong></p>
+<p>ج: كل الأحكام للترفيه والكوميديا بس، مش استشارة قانونية أو نفسية.</p>
+<p><strong>س: بياناتي بتتسجل؟</strong></p>
+<p>ج: لأ، مفيش أي بيانات بتتخزن. اللي بتكتبه بيتم معالجته وبيمشي.</p>
+<p><strong>س: إيه الذكاء الاصطناعي اللي بتستخدموه؟</strong></p>
+<p>ج: بنستخدم Google Gemini 2.0 Flash، واحد من أحدث وأذكى نماذج الذكاء الاصطناعي.</p>
+<p><strong>س: أقدر أستخدم الموقع على الموبايل؟</strong></p>
+<p>ج: أيوه، الموقع متجاوب 100% مع كل الأجهزة.</p>
+<p><strong>س: لو الحكم مش عاجبني أعمل إيه؟</strong></p>
+<p>ج: اضغط "احكم يا قاضي" تاني، وهتلاقي حكم مختلف تماماً!</p>
 </div>
 </div>
 
-<div id="page-about" class="page">
+<div id="page-contact" class="page">
 <div class="page-content">
-<h2>ℹ️ من نحن</h2>
-<p>⚖️ <strong>الحَكَم</strong> هي محكمة الذكاء الاصطناعي الشعبية الأولى في العالم العربي!</p>
-<p>🎯 <strong>هدفنا:</strong> نضحكك ونفرحك ونحل مشاكلنا اليومية بطريقة كوميدية ذكية.</p>
-<p>📚 <strong>قاموسنا:</strong> أكبر قاموس للعامية المصرية بأكثر من 200 كلمة!</p>
-<p>💡 <strong>نصيحة:</strong> الموقع ده للترفيه فقط! 😄</p>
+<h2>📞 اتصل بنا</h2>
+<p>نحن هنا لخدمتك! إذا كان لديك أي اقتراحات، مشاكل فنية، أو استفسارات حول موقع "الحَكَم"، لا تتردد في التواصل معنا.</p>
+<p><strong>البريد الإلكتروني:</strong> karemala753@gmail.com</p>
+<p><strong>ساعات الرد:</strong> نرد على جميع الاستفسارات خلال 24 ساعة.</p>
+<p>نقدر ملاحظاتك لأنها تساعدنا على تحسين تجربة المحكمة الشعبية وتقديم أحكام أكثر دقة ومرحاً!</p>
+<div class="contact-form">
+<input type="text" placeholder="اسمك" id="contactName">
+<input type="email" placeholder="بريدك الإلكتروني" id="contactEmail">
+<textarea placeholder="رسالتك" id="contactMessage" style="min-height:100px"></textarea>
+<button onclick="sendContact()">📤 إرسال</button>
+</div>
+</div>
+</div>
+
+<div id="page-terms" class="page">
+<div class="page-content">
+<h2>📄 شروط الاستخدام</h2>
+<p>آخر تحديث: نوفمبر 2026</p>
+<p><strong>1. قبول الشروط:</strong> باستخدامك لموقع "الحَكَم"، فإنك توافق على هذه الشروط بالكامل. إذا كنت لا توافق على أي جزء منها، يرجى عدم استخدام الموقع.</p>
+<p><strong>2. طبيعة الخدمة:</strong> الموقع يقدم محتوى ترفيهي وكوميدي فقط. جميع الأحكام الصادرة هي من صنع الذكاء الاصطناعي ولا تمثل أي رأي قانوني أو نفسي حقيقي.</p>
+<p><strong>3. عدم المسؤولية:</strong> نحن غير مسؤولين عن أي قرارات تتخذها بناءً على الأحكام الصادرة من الموقع. استشر مختصاً حقيقياً لأي مشكلة جدية.</p>
+<p><strong>4. المحتوى المقبول:</strong> يُمنع كتابة محتوى مسيء، عنصري، أو مخالف للقانون. يحق لنا حظر أي مستخدم يخالف ذلك.</p>
+<p><strong>5. الملكية الفكرية:</strong> جميع حقوق الموقع محفوظة. يُمنع نسخ أو إعادة نشر المحتوى دون إذن.</p>
+<p><strong>6. التعديلات:</strong> يحق لنا تعديل هذه الشروط في أي وقت. استمرارك في استخدام الموقع يعني قبولك للتعديلات.</p>
+<p><strong>7. القانون المنطبق:</strong> تخضع هذه الشروط للقوانين المصرية.</p>
 </div>
 </div>
 
@@ -156,11 +192,16 @@ textarea:focus{outline:none;border-color:#ffd700}
 <div class="page-content">
 <h2>🔒 سياسة الخصوصية</h2>
 <p>آخر تحديث: نوفمبر 2026</p>
-<p><strong>1. المعلومات:</strong> لا نجمع أي معلومات شخصية.</p>
-<p><strong>2. الأمان:</strong> نستخدم تشفير قياسي.</p>
-<p><strong>3. الإعلانات:</strong> نستخدم Google AdSense.</p>
-<p><strong>4. الإحصائيات:</strong> نستخدم Google Analytics.</p>
-<p><strong>5. حقوقك:</strong> https://www.google.com/settings/ads</p>
+<p><strong>1. مقدمة:</strong> مرحباً بك في موقع "الحَكَم". نحن نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية، ونلتزم بأحكام لائحة حماية البيانات العامة (GDPR) وسياسات Google AdSense.</p>
+<p><strong>2. المعلومات التي نجمعها:</strong> نحن لا نجمع أي معلومات شخصية عنك (مثل الاسم، البريد الإلكتروني، رقم الهاتف). المشاكل التي تكتبها تُرسل مباشرة لمعالجتها عبر الذكاء الاصطناعي ولا يتم تخزينها على خوادمنا.</p>
+<p><strong>3. ملفات تعريف الارتباط (Cookies):</strong> نستخدم ملفات تعريف الارتباط لأغراض تحليلية (مثل Google Analytics) لتحسين تجربة المستخدم، وعرض إعلانات ذات صلة (Google AdSense).</p>
+<p><strong>4. إعلانات Google AdSense:</strong> هذا الموقع يستخدم إعلانات Google AdSense. قد تستخدم Google وشركاؤها ملفات تعريف الارتباط لعرض إعلانات مخصصة بناءً على زياراتك السابقة لهذا الموقع أو لمواقع أخرى.</p>
+<p><strong>5. Google Analytics:</strong> نستخدم Google Analytics لجمع بيانات مجهولة عن زيارات الموقع (مثل عدد الزوار، الدولة، نوع الجهاز) بهدف تحسين الخدمة. هذه البيانات لا تُستخدم لتحديد هويتك الشخصية.</p>
+<p><strong>6. حقوقك:</strong> يمكنك إدارة تفضيلات الإعلانات أو إيقاف الإعلانات المخصصة من خلال إعدادات إعلانات Google: <a href="https://www.google.com/settings/ads" target="_blank">https://www.google.com/settings/ads</a></p>
+<p><strong>7. حماية البيانات:</strong> جميع البيانات المرسلة تُنقل عبر اتصال مشفر (HTTPS) لضمان أمانها.</p>
+<p><strong>8. الأطفال:</strong> الموقع مخصص للبالغين. لا نجمع أي بيانات من القصر دون موافقة ولي الأمر.</p>
+<p><strong>9. التعديلات:</strong> قد نحدّث سياسة الخصوصية من وقت لآخر. سيتم إشعارك بأي تغييرات جوهرية عبر هذه الصفحة.</p>
+<p><strong>10. التواصل:</strong> لأي استفسار يتعلق بالخصوصية، يرجى استخدام صفحة "اتصل بنا" أو مراسلتنا على: karemala753@gmail.com</p>
 </div>
 </div>
 
@@ -172,9 +213,13 @@ textarea:focus{outline:none;border-color:#ffd700}
 
 <script>
 let currentVerdict=null;
-async function loadCount(){try{const r=await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev/count');const d=await r.json();document.getElementById('verdictCount').textContent=d.count||'0';}catch(e){document.getElementById('verdictCount').textContent='0';}}
+const WORKER_URL='https://patient-glade-8b6e.karemala753.workers.dev';
+
+async function loadCount(){try{const r=await fetch(WORKER_URL+'/count');const d=await r.json();document.getElementById('verdictCount').textContent=d.count||'0';}catch(e){document.getElementById('verdictCount').textContent='0';}}
 loadCount();
-function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');if(event&&event.target)event.target.classList.add('active');if(p==='dictionary')initDict();}
+
+function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');if(event&&event.target)event.target.classList.add('active');}
+
 function setProblem(t){document.getElementById('problem').value=t;}
 
 async function getVerdict(){
@@ -185,39 +230,48 @@ document.getElementById('verdict').style.display='none';
 document.getElementById('error').style.display='none';
 document.getElementById('judgeBtn').disabled=true;
 try{
-const dictSample=Object.keys(DICT).slice(0,50).join('، ');
-const prompt=`أنت "الحَكَم"، قاضي مصري شعبي، دمك خفيف جداً، بتتكلم عامية مصرية حقيقية 100%. ممنوع الفصحى خالص.
+const prompt=`أنت "الحَكَم"، قاضي رقمي ذكي، ساخر، ومنطقي جداً. مهمتك هي حل الخلافات بين البشر.
 
-📚 استخدم كلمات من قاموس العامية المصرية في أحكامك زي: ${dictSample}
+سأعطيك الآن موقفاً فيه طرفين مختلفين، وأريدك أن تصدر حكماً نهائياً حاسماً ومضحكاً، وتحدد "عقوبة" خفيفة للطرف الغلطان.
+
+قواعد مهمة:
+- لا تنحاز لأحد، كن عادلاً وساخراً في نفس الوقت.
+- استخدم لغة عامية مصرية بسيطة ومضحكة تصلح للمشاركة على تيك توك وإنستجرام.
+- جملك قصيرة وقوية، واستخدام تشبيهات ذكية ومفاجئة.
+- في "مرافعة النيابة"، ترافع عن المتهم بأسلوب كوميدي كأنك محامي دفاع بيحاول يبرئه بحجج مضحكة وسخيفة.
 
 المشكلة: "${problem}"
 
 رد بصيغة JSON فقط (بدون أي كلام قبل أو بعد):
-{"case_title":"عنوان مضحك","degree":"رقم من 100","degree_reason":"مثل شعبي","accused":"وصف المتهم بالعامية","victim":"وصف المجني عليه بالعامية","analysis":"تحليل مضحك 3-4 جمل بالعامية","verdict":"الحكم بالعامية","punishment":["عقوبة1","عقوبة2","عقوبة3"],"judge_advice":"نصيحة بالعامية","life_lesson":"الدرس بالعامية","related_cases":["قضية1","قضية2","قضية3"],"judge_quote":"اقتباس بالعامية","real_advice":"نصيحة حقيقية مفيدة 2-3 جمل بالعامية","closing":"جملة ختامية بالعامية"}
+{
+  "case_title": "عنوان القضية بشكل كوميدي ومبتكر",
+  "accused": "وصف المتهم (الطرف الأول)",
+  "victim": "وصف المجني عليه (الطرف الثاني)",
+  "prosecution": "مرافعة النيابة - ترافع عن المتهم بأسلوب كوميدي مضحك (3-4 جمل) كأنك محامي دفاع بيحاول يبرئه بحجج سخيفة",
+  "verdict": "الحكم النهائي الحاسم والمضحك (2-3 جمل)",
+  "punishment": ["عقوبة 1 خفيفة ومبتكرة", "عقوبة 2 مضحكة", "عقوبة 3 سخيفة"],
+  "judge_quote": "اقتباس ساخر من القاضي وهو بيرفع الجلسة",
+  "real_advice": "نصيحة حقيقية ومفيدة لحل المشكلة فعلياً (2-3 جمل)",
+  "closing": "جملة ختامية درامية كوميدية"
+}`;
 
-قواعد: عامية مصرية بس، جمل قصيرة، دماغة خفيفة، ممنوع الفصحى، استخدم كلمات من القاموس.`;
-
-const response=await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:"system",content:"أجب بصيغة JSON فقط. تكلم بالعامية المصرية."},{role:"user",content:prompt}],temperature:1.1})});
+const response=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:"system",content:"أجب بصيغة JSON فقط. تكلم بالعامية المصرية البسيطة والمضحكة."},{role:"user",content:prompt}],temperature:1.1})});
 const data=await response.json();
-if(!response.ok)throw new Error(data.error?.message||'خطأ');
+if(!response.ok)throw new Error(data.error?.message||'خطأ في الاتصال بالمحكمة');
 let text=data.choices?.[0]?.message?.content;
-if(!text)throw new Error('لا يوجد رد');
+if(!text)throw new Error('لا يوجد رد من القاضي');
 text=text.replace(/```json\s?/g,'').replace(/```\s?/g,'').trim();
 let result;
-try{result=JSON.parse(text);}catch(e){result={case_title:'⚖️ حكم المحكمة',degree:'50',degree_reason:'الحياة مش ورد',accused:'المتهم',victim:'المجني عليه',analysis:'المشكلة محتاجة حل',verdict:'الحكم لصالح العدالة',punishment:['فكر في الموضوع','اتكلم مع الطرف التاني','الحل في الحوار'],judge_advice:'الصبر مفتاح الفرج',life_lesson:'كل مشكلة ليها حل',related_cases:['قضية 1','قضية 2','قضية 3'],judge_quote:'القاضي بيحب الشاي ☕',real_advice:'حاول تفهم الطرف التاني',closing:'⚖️ رُفعت الجلسة!'};}
+try{result=JSON.parse(text);}catch(e){result={case_title:'⚖️ حكم المحكمة',accused:'المتهم',victim:'المجني عليه',prosecution:'النيابة بتترافع...',verdict:'الحكم لصالح العدالة',punishment:['فكر في الموضوع','اتكلم مع الطرف التاني','الحل في الحوار'],judge_quote:'القاضي بيحب الشاي ☕',real_advice:'حاول تفهم الطرف التاني',closing:'⚖️ رُفعت الجلسة!'};}
 currentVerdict=result;
-try{await fetch('https://gentle-waterfall-3e38.karemjdjbd.workers.dev/count');loadCount();}catch(e){}
+try{await fetch(WORKER_URL+'/count');loadCount();}catch(e){}
 document.getElementById('verdictContent').innerHTML=`
 <h3 style="color:#ffd700;text-align:center;margin-bottom:20px;font-size:1.4em;line-height:1.8;">${result.case_title||'⚖️ قضية'}</h3>
-<div class="verdict-item"><strong>📊 درجة الجريمة:</strong><p>${result.degree||'-'} / 100</p><p style="color:#aaa;font-size:0.9em;">${result.degree_reason||''}</p></div>
 <div class="verdict-item"><strong>👤 المتهم:</strong><p>${result.accused||'-'}</p></div>
 <div class="verdict-item"><strong>👤 المجني عليه:</strong><p>${result.victim||'-'}</p></div>
-<div class="verdict-item"><strong>🔍 تحليل القاضي:</strong><p>${result.analysis||'-'}</p></div>
-<div class="verdict-item"><strong>⚖️ الحكم:</strong><p>${result.verdict||'-'}</p></div>
+<div class="verdict-item"><strong>⚖️ مرافعة النيابة:</strong><p>${result.prosecution||'-'}</p></div>
+<div class="verdict-item"><strong>🔨 الحكم:</strong><p>${result.verdict||'-'}</p></div>
 <div class="verdict-item"><strong>😂 العقوبات:</strong><ul>${(result.punishment||[]).map(p=>`<li>${p}</li>`).join('')}</ul></div>
-<div class="verdict-item"><strong>💡 نصيحة القاضي:</strong><p>${result.judge_advice||'-'}</p></div>
-<div class="verdict-item"><strong>🎓 الدرس المستفاد:</strong><p>${result.life_lesson||'-'}</p></div>
-<div class="verdict-item"><strong>📚 قضايا مشابهة:</strong><ul>${(result.related_cases||[]).map(c=>`<li>${c}</li>`).join('')}</ul></div>
 <div class="quote-box">"${result.judge_quote||'القاضي بيحب الشاي ☕'}"</div>
 <div class="real-advice-box"><div class="advice-label">💚 نصيحة حقيقية من القلب:</div><div class="advice-text">${result.real_advice||'-'}</div></div>
 <div class="closing">${result.closing||'⚖️ رُفعت الجلسة!'}</div>`;
@@ -226,243 +280,8 @@ document.getElementById('verdict').style.display='block';
 finally{document.getElementById('loading').style.display='none';document.getElementById('judgeBtn').disabled=false;}
 }
 
-function getShareText(){if(!currentVerdict)return'';const v=currentVerdict;return`⚖️ حكم المحكمة:\n\n${v.case_title}\n\n📊 ${v.degree}/100 - ${v.degree_reason}\n👤 ${v.accused} | ${v.victim}\n\n🔍 ${v.analysis}\n⚖️ ${v.verdict}\n\n😂 ${v.punishment?.join(' | ')}\n💡 ${v.judge_advice}\n\n${v.closing}\n\nجرب: ${window.location.href}`;}
+function getShareText(){if(!currentVerdict)return'';const v=currentVerdict;return`⚖️ حكم المحكمة:\n\n${v.case_title}\n\n👤 المتهم: ${v.accused}\n👤 المجني عليه: ${v.victim}\n\n⚖️ مرافعة النيابة: ${v.prosecution}\n\n🔨 الحكم: ${v.verdict}\n\n😂 العقوبات: ${v.punishment?.join(' | ')}\n\n"${v.judge_quote}"\n\n💚 نصيحة: ${v.real_advice}\n\n${v.closing}\n\nجرب: ${window.location.href}`;}
+
 function shareOn(p){const t=encodeURIComponent(getShareText());const u=encodeURIComponent(window.location.href);let s='';switch(p){case'whatsapp':s=`https://wa.me/?text=${t}`;break;case'facebook':s=`https://www.facebook.com/sharer/sharer.php?u=${u}&quote=${t}`;break;case'twitter':s=`https://twitter.com/intent/tweet?text=${t}`;break;case'telegram':s=`https://t.me/share/url?url=${u}&text=${t}`;break;}if(s)window.open(s,'_blank');}
-function copyVerdict(){navigator.clipboard.writeText(getShareText()).then(()=>alert('✅ تم النسخ!')).catch(()=>alert('❌ فشل'));}
 
-// ============ القاموس ============
-const DICT={
-'أفش':{m:'كشف / فضح',e:'أفشني قدام الناس',c:'أفعال'},
-'أرتك':{m:'خبيث / مكار',e:'ده راجل أرتك',c:'صفات'},
-'أتأسف':{m:'ياريت / ياريتني',e:'أتأسف إني جيت',c:'تعبيرات'},
-'أزق':{m:'أدفع / أزحزح',e:'أزق الباب',c:'أفعال'},
-'ألعوبة':{m:'ملعوب / حيلة',e:'دي ألعوبة',c:'أسماء'},
-'بحت':{m:'ظهرت خبيئتي',e:'بحت قدامه',c:'أفعال'},
-'بصبص':{m:'بص بطرف عينه',e:'بيصبص عليا',c:'أفعال'},
-'بعزق':{m:'صرف بتبذير',e:'بعزق فلوسه',c:'أفعال'},
-'بجح':{m:'قليل الذوق',e:'واحد بجح',c:'صفات'},
-'برطع':{m:'اتحرك بحرية مبالغ فيها',e:'برطع في المشي',c:'أفعال'},
-'بق':{m:'فم',e:'اقفل بقك',c:'أسماء'},
-'بلطجي':{m:'قاطع طريق',e:'بلطجي الشارع',c:'أسماء'},
-'بهدلة':{m:'مرمطة / إهانة',e:'اتعمله بهدلة',c:'أسماء'},
-'بطة':{m:'دلع أو استهزاء',e:'يا بطة',c:'تعبيرات'},
-'بقسماط':{m:'الناشف / القاسي',e:'عيش بقسماط',c:'صفات'},
-'جبنة':{m:'جبن / خوف',e:'جبنة موت',c:'صفات'},
-'جلف':{m:'غليظ الطبع',e:'واحد جلف',c:'صفات'},
-'جاحظ':{m:'واسع العينين بغضب',e:'عنيه جاحظين',c:'صفات'},
-'جحش':{m:'شتيمة خفيفة',e:'يا جحش',c:'تعبيرات'},
-'حويط':{m:'ذكي / داهية',e:'راجل حويط',c:'صفات'},
-'حنكش':{m:'ضعيف / مهزوز',e:'موقف حنكش',c:'صفات'},
-'حبة':{m:'شوية / قليل',e:'حبة كده',c:'تعبيرات'},
-'حنتفة':{m:'تدقيق مبالغ فيه',e:'حنتفة في الكلام',c:'أسماء'},
-'خازوق':{m:'مصيبة كبيرة',e:'اتعمله خازوق',c:'أسماء'},
-'خلبوس':{m:'مراوغ / لعوب',e:'واحد خلبوس',c:'صفات'},
-'خدعة':{m:'نصبة',e:'دي خدعة',c:'أسماء'},
-'خرطوشة':{m:'علبة سجاير',e:'خرطوشة سجاير',c:'أسماء'},
-'دربكة':{m:'فوضى / زحمة',e:'دربكة في الشارع',c:'أسماء'},
-'دغري':{m:'مباشر / صريح',e:'كلام دغري',c:'صفات'},
-'دحلبة':{m:'لف ودوران',e:'دحلبة كتير',c:'أسماء'},
-'دبوس':{m:'وشاية / زن',e:'ده دبوس',c:'أسماء'},
-'درباس':{m:'قفل باب ضخم',e:'درباس البيت',c:'أسماء'},
-'رأفة':{m:'رحمة',e:'مفيش رأفة',c:'أسماء'},
-'رمية':{m:'رمي الشيء',e:'رمية حلوة',c:'أسماء'},
-'زلبطة':{m:'استغلال الآخرين',e:'عمله زلبطة',c:'أسماء'},
-'زربيون':{m:'لخبطة',e:'زربيون في الكلام',c:'أسماء'},
-'زنان':{m:'بيكرر الكلام كتير',e:'واحد زنان',c:'صفات'},
-'زعبوط':{m:'غطاء رأس الجاكيت',e:'شد الزعبوط',c:'أسماء'},
-'سرسجي':{m:'فئة شعبية بصوت عالي',e:'واحد سرسجي',c:'صفات'},
-'سلطة':{m:'لخبطة',e:'سلطة في الكلام',c:'أسماء'},
-'سرسوب':{m:'نقط مية خفيفة',e:'سرسوب من المية',c:'أسماء'},
-'سحسحة':{m:'كسل وتراخي',e:'سحسحة في الشغل',c:'أسماء'},
-'سحلية':{m:'مراوغة',e:'سحلية في الكلام',c:'أسماء'},
-'شخللة':{m:'فلوس معدنية',e:'معاه شخللة',c:'أسماء'},
-'شلباك':{m:'شباك صغير',e:'شلباك الشقة',c:'أسماء'},
-'شوشرة':{m:'دوشة / إزعاج',e:'شوشرة كتير',c:'أسماء'},
-'صياعة':{m:'ذكاء شعبي / شقاوة',e:'واحد صياع',c:'صفات'},
-'صدمة':{m:'مفاجأة',e:'صدمة قوية',c:'أسماء'},
-'ضلفة':{m:'ضلع الباب',e:'ضلفة الباب',c:'أسماء'},
-'طفس':{m:'طماع في الأكل',e:'واحد طفس',c:'صفات'},
-'طرطشة':{m:'تطاير السوائل',e:'طرطشة مية',c:'أسماء'},
-'عواج':{m:'متكبر',e:'راجل عواج',c:'صفات'},
-'عربجي':{m:'قليل الأدب',e:'واحد عربجي',c:'صفات'},
-'عبيط':{m:'غبي براءة',e:'واحد عبيط',c:'صفات'},
-'عفش':{m:'أثاث البيت',e:'العفش الجديد',c:'أسماء'},
-'عفريت':{m:'شيطان صغير / ذكي جداً',e:'واحد عفريت',c:'صفات'},
-'غشيم':{m:'متهور',e:'واحد غشيم',c:'صفات'},
-'غرزة':{m:'مكان شعبي مقفول',e:'قعدنا في الغرزة',c:'أسماء'},
-'فردة':{m:'فرد حذاء أو مقلب',e:'فردة حذاء',c:'أسماء'},
-'فتوة':{m:'بلطجة محمولة',e:'واحد فتوة',c:'صفات'},
-'فركة':{m:'حرق دم / حركة سريعة',e:'فركة في الدم',c:'أسماء'},
-'قشط':{m:'سرقة / أخذ الكل',e:'قشط الفلوس',c:'أفعال'},
-'قنفذ':{m:'اللي بيبعد',e:'قنفد مني',c:'أفعال'},
-'كلة':{m:'بلي (لعبة)',e:'لعبنا كلة',c:'أسماء'},
-'كحيان':{m:'فقير مفلس',e:'واحد كحيان',c:'صفات'},
-'كتكوت':{m:'دلع',e:'يا كتكوت',c:'تعبيرات'},
-'كبري':{m:'وسيلة توصيل (واسطة)',e:'عنده كبري',c:'أسماء'},
-'لفيف':{m:'مراوغ',e:'واحد لفيف',c:'صفات'},
-'لولبي':{m:'سريع الحركة',e:'راجل لولبي',c:'صفات'},
-'متلقح':{m:'قاعد بلا شغل',e:'قاعد متلقح',c:'صفات'},
-'متبت':{m:'ماسك كويس',e:'متبت في الموضوع',c:'صفات'},
-'مفلوق':{m:'طماع / جعان',e:'واحد مفلوق',c:'صفات'},
-'نحاس':{m:'بخل / مكر',e:'واحد نحاس',c:'صفات'},
-'نطاط':{m:'غير مستقر',e:'واحد نطاط',c:'صفات'},
-'هبّاد':{m:'كذاب / فتاي',e:'واحد هبّاد',c:'صفات'},
-'هتاك':{m:'فاضح',e:'واحد هتاك',c:'صفات'},
-'هزيان':{m:'كلام غير منطقي',e:'كلام هزيان',c:'أسماء'},
-'وصوة':{m:'وسواس',e:'عنده وصوة',c:'أسماء'},
-'يخخخ':{m:'تعبير استهجان',e:'يخخخ عليك',c:'تعبيرات'},
-'جاب آخره':{m:'وصل لمرحلة الانفجار',e:'الراجل جاب آخره',c:'تعبيرات'},
-'قرصة ودن':{m:'عقوبة خفيفة موجعة',e:'تاخد قرصة ودن',c:'عقوبات'},
-'مغيب عقلياً':{m:'يعمل مصيبة ويبررها',e:'واحد مغيب عقلياً',c:'صفات'},
-'بيحاور':{m:'يلف ويدور بالكلام',e:'بيحاور عشان يهرب',c:'أفعال'},
-'نازل تطبيل':{m:'بينحاز لمصلحة',e:'نازل تطبيل ليه',c:'تعبيرات'},
-'يا فالح':{m:'سخرية لاذعة',e:'يا فالح يا عيني عليك',c:'تعبيرات'},
-'على الصامت':{m:'حكم صارم',e:'الحكم على الصامت',c:'تعبيرات'},
-'هات المستندات':{m:'فرّغ المحادثات',e:'هات المستندات',c:'تعبيرات'},
-'قنبلة أمن قومي':{m:'مشكلة تافهة مكبرة',e:'قنبلة أمن قومي',c:'تعبيرات'},
-'لبس روب القاضي':{m:'لحظة الحكم',e:'القاضي لبس روبه',c:'تعبيرات'},
-'اللي اختتوا ماتوا':{m:'يعمل حاجات غريبة',e:'اللي اختتوا ماتوا',c:'أمثال'},
-'جاء يبهوها عماها':{m:'يصلح غلطة فيطلع مصيبة',e:'جاء يبهوها عماها',c:'أمثال'},
-'أكل عيش':{m:'حجة الإهمال',e:'بيقول أكل عيش',c:'تعبيرات'},
-'عامل فيها السبع فسيخ':{m:'يفرعن وهو ضعيف',e:'عامل فيها السبع فسيخ',c:'تعبيرات'},
-'مغيب':{m:'حالته ضائعة',e:'واحد مغيب',c:'صفات'},
-'مأفور':{m:'مبالغ في كذبته',e:'واحد مأفور',c:'صفات'},
-'متلبس':{m:'مسوكه بالجرم',e:'متلبس بالجرم',c:'صفات'},
-'مهفوف':{m:'دماغه طايشة',e:'واحد مهفوف',c:'صفات'},
-'مكحرت':{m:'مفلس',e:'واحد مكحرت',c:'صفات'},
-'مستظرف':{m:'بيحاول يدمه خفيف',e:'واحد مستظرف',c:'صفات'},
-'مأنتخ':{m:'قاعد مطنش',e:'قعد مأنتخ',c:'صفات'},
-'مكفهر':{m:'بوز شبرين',e:'قعد مكفهر',c:'صفات'},
-'مخروق':{m:'عنده مصيبة',e:'واحد مخروق',c:'صفات'},
-'قرصة':{m:'قرصة ودن تأديبية',e:'تاخد قرصة',c:'عقوبات'},
-'شلوت':{m:'ركلة معنوية',e:'اتعمله شلوت',c:'عقوبات'},
-'تأنيب':{m:'محاضرة في الضمير',e:'اتعمله تأنيب',c:'عقوبات'},
-'قصاص':{m:'العدل الإلهي',e:'ده قصاص',c:'عقوبات'},
-'مطرقة':{m:'شاكوش القاضي',e:'المطرقة نزلت',c:'أسماء'},
-'جلسة':{m:'قعدة حساب',e:'جلسة صعبة',c:'أسماء'},
-'حكم':{m:'كلام نهائي',e:'الحكم نهائي',c:'أسماء'},
-'تغريم':{m:'دفع ثمن الغلط',e:'اتعمله تغريم',c:'عقوبات'},
-'براءة':{m:'إفراج مع تحذير',e:'براءة مشروطة',c:'أسماء'},
-'استئناف':{m:'محاولة تخفيف العقوبة',e:'عمل استئناف',c:'أسماء'},
-'مطب':{m:'مكيدة وقع فيها',e:'وقع في مطب',c:'أسماء'},
-'تورتة':{m:'غلطة كبيرة',e:'عمل تورتة',c:'أسماء'},
-'عك':{m:'شغل متخبط',e:'شغل عك',c:'صفات'},
-'فشوش':{m:'كلام فاضي',e:'كلام فشوش',c:'صفات'},
-'صداع':{m:'زن الخصم',e:'صداع في الراس',c:'أسماء'},
-'حنجوري':{m:'صوته عالي وهو غلطان',e:'واحد حنجوري',c:'صفات'},
-'تخريف':{m:'كلام بدون أساس',e:'كلام تخريف',c:'أسماء'},
-'تزولق':{m:'الهروب من المسؤولية',e:'تزولق من الموقف',c:'أفعال'},
-'تنطيط':{m:'حركة زيادة',e:'تنطيط في الكلام',c:'أسماء'},
-'جلطة':{m:'هول الصدمة',e:'عمله جلطة',c:'أسماء'},
-'سفسطة':{m:'فذلكة زيادة',e:'سفسطة في الكلام',c:'أسماء'},
-'تغفيل':{m:'استغفال',e:'بيعمل تغفيل',c:'أسماء'},
-'تزويق':{m:'تزيين الكذب',e:'تزويق الكلام',c:'أسماء'},
-'شقلباظ':{m:'تغيير الأقوال',e:'عمل شقلباظ',c:'أسماء'},
-'مكياج':{m:'تزيين الغلط',e:'حط مكياج على غلطه',c:'أسماء'},
-'استظراف':{m:'خفة دم مصطنعة',e:'استظراف في الجد',c:'أسماء'},
-'تفليسة':{m:'الانهيار',e:'اتعمله تفليسة',c:'أسماء'},
-'تأبيدة':{m:'حرمان من الكلام',e:'تاخد تأبيدة',c:'عقوبات'},
-'حضانة':{m:'إعادة تربية',e:'تاخد حضانة',c:'عقوبات'},
-'رفض':{m:'شطب الدفوع',e:'الدفوع اترفضت',c:'أفعال'},
-'شطب':{m:'إلغاء الصداقة',e:'اتشطب من القائمة',c:'أفعال'},
-'تجميد':{m:'سحب الصلاحيات',e:'اتجمدت حساباته',c:'أفعال'},
-'حجز':{m:'التحفظ على الموبايل',e:'الموبايل اتحجز',c:'أفعال'},
-'طرد':{m:'الخروج الفوري',e:'اتطرد من المحكمة',c:'أفعال'},
-'إحالة':{m:'تحويل القضية',e:'اتحالت القضية',c:'أفعال'},
-'تعويض':{m:'دفع ثمن الروقان',e:'تاخد تعويض',c:'أسماء'},
-'استعطاف':{m:'البكا لتقليل العقوبة',e:'عمل استعطاف',c:'أسماء'},
-'بشاعة':{m:'فظاعة الغلطة',e:'بشاعة الموقف',c:'أسماء'},
-'تهريج':{m:'تصنيف المرافعة',e:'كله تهريج',c:'أسماء'},
-'فهلوي':{m:'ذكي بطريقة ملتوية',e:'واحد فهلوي',c:'صفات'},
-'أكلشيه':{m:'كلام محفوظ',e:'كلام أكلشيه',c:'أسماء'},
-'حوير':{m:'ذكي جداً',e:'راجل حوير',c:'صفات'},
-'سرداب':{m:'موقف صعب',e:'دخل سرداب',c:'أسماء'},
-'هجايص':{m:'كلام بدون معنى',e:'كلام هجايص',c:'أسماء'},
-'لتلت':{m:'ثلث / جزء صغير',e:'لتلت الحاجة',c:'أسماء'},
-'رغي':{m:'كلام كثير',e:'رغي كتير',c:'أسماء'},
-'فتي':{m:'ضعيف',e:'واحد فتي',c:'صفات'},
-'زرجنة':{m:'لخبطة',e:'زرجنة في الكلام',c:'أسماء'},
-'كشري':{m:'موقف مختلط',e:'موقف كشري',c:'أسماء'},
-'شلبيات':{m:'حيل ومكايد',e:'شلبيات كتير',c:'أسماء'},
-'هلس':{m:'كلام بدون توقف',e:'هلس في الكلام',c:'أسماء'},
-'بلكونة':{m:'مكان المراقبة',e:'قاعد في البلكونة',c:'أسماء'},
-'صرعة':{m:'لحظة الذكاء',e:'عمل صرعة',c:'أسماء'},
-'هوس':{m:'obsession',e:'عنده هوس',c:'أسماء'},
-'تفلسف':{m:'كلام معقد',e:'بتفلسف ليه',c:'أفعال'},
-'فذلكة':{m:'لف ودوران',e:'فذلكة في الكلام',c:'أسماء'},
-'برطمة':{m:'كلام غير واضح',e:'برطمة في الكلام',c:'أسماء'},
-'تكشيرة':{m:'وجه عابس',e:'عمل تكشيرة',c:'أسماء'},
-'بوز':{m:'وجه',e:'بوزه طويل',c:'أسماء'},
-'نحنوح':{m:'توتر',e:'نحنوح في الكلام',c:'أسماء'},
-'حريقة':{m:'موقف محرج',e:'موقف حريقة',c:'أسماء'},
-'ولعة':{m:'حماس زائد',e:'ولعة في الشغل',c:'أسماء'},
-'فازلين':{m:'تملق',e:'بيحط فازلين',c:'أسماء'},
-'فركش':{m:'خدش / إهانة',e:'عمله فركش',c:'أسماء'},
-'كروتة':{m:'ضربة قوية',e:'اتعمله كروتة',c:'أسماء'},
-'جلجل':{m:'صوت عالي',e:'جلجل في الكلام',c:'أسماء'},
-'خوازيق':{m:'مصائب كبيرة',e:'خوازيق كتير',c:'أسماء'},
-'فضايح':{m:'مواقف محرجة',e:'فضايح كتير',c:'أسماء'},
-'سكرينات':{m:'صور المحادثات',e:'هات السكرينات',c:'أسماء'},
-'لغوصة':{m:'غوص في المشكلة',e:'لغوصة في الموضوع',c:'أفعال'},
-'تشنيع':{m:'وصف بشع',e:'تشنيع في الوصف',c:'أفعال'},
-'طأطأة':{m:'خضوع',e:'طأطأ راسه',c:'أفعال'},
-'تفاصيح':{m:'تفاصيل كثيرة',e:'تفاصيح كتير',c:'أسماء'},
-'تبلطح':{m:'استلقاء',e:'تبلطح على السرير',c:'أفعال'},
-'تنطيش':{m:'تجاهل',e:'تنطيش الكلام',c:'أفعال'},
-'تفرعن':{m:'تكبر',e:'تفرعن في القعدة',c:'أفعال'},
-'تكشير':{m:'إظهار الغضب',e:'تكشير في وشه',c:'أفعال'},
-'تنميط':{m:'تصنيف',e:'تنميط الناس',c:'أفعال'},
-'تبرطيم':{m:'كلام غير واضح',e:'تبرطيم في الكلام',c:'أفعال'},
-'تلزيق':{m:'إلصاق التهمة',e:'تلزيق تهمة',c:'أفعال'},
-'تلطيش':{m:'ضرب خفيف',e:'تلطيش على الوش',c:'أفعال'},
-'تعشيش':{m:'استقرار',e:'تعشيش في المكان',c:'أفعال'},
-'تفريغ':{m:'إفراغ',e:'تفريغ الشحنة',c:'أفعال'},
-'تشحيذ':{m:'حدة',e:'تشحيذ في الكلام',c:'أسماء'},
-'تمسيح':{m:'مسح',e:'تمسيح الكلام',c:'أفعال'},
-'تقمص':{m:'تقمص شخصية',e:'تقمص دور',c:'أفعال'},
-'تملص':{m:'هروب',e:'تملص من المسؤولية',c:'أفعال'},
-'تشويش':{m:'إرباك',e:'تشويش في الدماغ',c:'أسماء'},
-'شلتحة':{m:'ضربة',e:'اتعمله شلتحة',c:'أسماء'},
-'مرمطة':{m:'إهانة',e:'اتعمله مرمطة',c:'أسماء'},
-'زلابيو':{m:'لخبطة',e:'زلابيو في الكلام',c:'أسماء'},
-'فرتكة':{m:'حركة سريعة',e:'فرتكة في المشي',c:'أسماء'},
-'كرتت':{m:'دحرجة',e:'كرتت الكرة',c:'أفعال'},
-'لخبطت':{m:'خلط',e:'لخبطت الكلام',c:'أفعال'},
-'طفست':{m:'طمع',e:'طفست في الأكل',c:'أفعال'},
-'بحلقت':{m:'فتح العينين',e:'بحلقت عنيه',c:'أفعال'},
-'كشرت':{m:'إظهار الأسنان',e:'كشرت في وشه',c:'أفعال'},
-'تنحت':{m:'نحت / تشكيل',e:'تنحت الكلام',c:'أفعال'},
-'شخت':{m:'صوت عالي',e:'شخت في الكلام',c:'أفعال'},
-'ربطت':{m:'ربط',e:'ربطت الحبل',c:'أفعال'},
-'فككت':{m:'تفكيك',e:'فككت اللغز',c:'أفعال'},
-'ولعت':{m:'اشتعل',e:'ولعت في الكلام',c:'أفعال'},
-'طفيت':{m:'انطفأ',e:'طفيت النور',c:'أفعال'},
-'زأرت':{m:'زئير',e:'زأرت في وشه',c:'أفعال'},
-'كتمت':{m:'كتمان',e:'كتمت السر',c:'أفعال'},
-'قطمت':{m:'قضم',e:'قطمت الحاجة',c:'أفعال'}
-};
-
-let currentLetter='all';
-function initDict(){
-const letters=['أ','ب','ت','ج','ح','خ','د','ذ','ر','ز','س','ش','ص','ض','ط','ع','غ','ف','ق','ك','ل','م','ن','ه','و','ي'];
-let html='<button class="letter-btn '+(currentLetter==='all'?'active':'')+'" onclick="filterByLetter(\'all\')">الكل</button>';
-letters.forEach(l=>{html+='<button class="letter-btn '+(currentLetter===l?'active':'')+'" onclick="filterByLetter(\''+l+'\')">'+l+'</button>';});
-document.getElementById('letterFilter').innerHTML=html;
-filterDict();
-}
-function filterByLetter(l){currentLetter=l;initDict();}
-function filterDict(){
-const search=document.getElementById('dictSearch')?.value.toLowerCase()||'';
-let words=Object.entries(DICT);
-if(currentLetter!=='all'){words=words.filter(([w])=>w.startsWith(currentLetter));}
-if(search){words=words.filter(([w,d])=>w.includes(search)||d.m.includes(search)||d.e.includes(search));}
-document.getElementById('dictCount').textContent='عدد الكلمات: '+words.length;
-let html='';
-words.forEach(([w,d])=>{
-html+='<div class="dict-word"><div class="word">'+w+' <span class="dict-cat">['+d.c+']</span></div><div class="meaning">'+d.m+'</div><div class="example">مثال: '+d.e+'</div></div>';
-});
-document.getElementById('dictContent').innerHTML=html||'<p style="text-align:center;color:#aaa;">مفيش كلمات</p>';
-}
-</script>
-</body>
-</html>
+function copyVerdi
